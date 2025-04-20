@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c255nf625dsau"]
+
+[ext_resource type="FontFile" uid="uid://dms6v7w3tkt6e" path="res://assets/fonts/RuneScape-ENA.ttf" id="1_8ekkj"]
+
+[resource]
+default_font = ExtResource("1_8ekkj")

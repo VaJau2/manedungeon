@@ -13,7 +13,13 @@ config_version=5
 config/name="ManeDungeon"
 run/main_scene="uid://dsptvlgm2e17o"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/bg_color=Color(0.000693898, 0.000693898, 0.000693897, 1)
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 
@@ -22,3 +28,4 @@ project/assembly_name="ManeDungeon"
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.184314, 0.184314, 0.180392, 1)
