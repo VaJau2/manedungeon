@@ -25,6 +25,15 @@ window/stretch/aspect="keep_width"
 
 project/assembly_name="ManeDungeon"
 
+[file_customization]
+
+folder_colors={
+"res://assets/json/": "yellow",
+"res://assets/scripts/": "green",
+"res://assets/sprites/": "teal",
+"res://objects/": "purple"
+}
+
 [rendering]
 
 renderer/rendering_method="mobile"

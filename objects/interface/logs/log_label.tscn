@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b35o4r4kb71yi"]
+[gd_scene load_steps=3 format=3 uid="uid://b35o4r4kb71yi"]
 
 [ext_resource type="Theme" uid="uid://c255nf625dsau" path="res://assets/fonts/pixel_theme.tres" id="1_xymml"]
+[ext_resource type="Script" uid="uid://d3mid2i48rsui" path="res://assets/scripts/interface/logLabel.gd" id="2_b6lyt"]
 
 [node name="label" type="Label"]
 offset_right = 384.0
@@ -10,3 +11,4 @@ theme_override_font_sizes/font_size = 20
 text = "Тестовый текст"
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("2_b6lyt")

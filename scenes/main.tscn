@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://dsptvlgm2e17o"]
+[gd_scene load_steps=6 format=4 uid="uid://dsptvlgm2e17o"]
 
 [ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://drcv3qk77jdcs" path="res://objects/characters/pony.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://3u2sanrdi8y4" path="res://assets/scripts/interface/logs.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b35o4r4kb71yi" path="res://objects/interface/logs/log_label.tscn" id="5_tbgi4"]
 
 [node name="main" type="Node2D"]
 texture_filter = 1
@@ -49,3 +51,18 @@ position = Vector2(-85, 40)
 [node name="pony" parent="scene" instance=ExtResource("3_tbgi4")]
 y_sort_enabled = true
 position = Vector2(26, -4)
+
+[node name="menu" type="CanvasLayer" parent="."]
+
+[node name="logs" type="VBoxContainer" parent="menu"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -194.0
+offset_right = 512.0
+offset_bottom = -8.0
+grow_vertical = 0
+alignment = 2
+script = ExtResource("4_jyhfs")
+logPrefab = ExtResource("5_tbgi4")
