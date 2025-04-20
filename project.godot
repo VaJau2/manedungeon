@@ -28,10 +28,11 @@ project/assembly_name="ManeDungeon"
 [file_customization]
 
 folder_colors={
+"res://assets/": "red",
 "res://assets/json/": "yellow",
 "res://assets/scripts/": "green",
-"res://assets/sprites/": "teal",
-"res://objects/": "purple"
+"res://assets/sprites/": "red",
+"res://objects/": "yellow"
 }
 
 [rendering]

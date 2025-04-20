@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://dsptvlgm2e17o"]
+[gd_scene load_steps=7 format=4 uid="uid://dsptvlgm2e17o"]
 
 [ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://drcv3qk77jdcs" path="res://objects/characters/pony.tscn" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://3u2sanrdi8y4" path="res://assets/scripts/interface/logs.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b35o4r4kb71yi" path="res://objects/interface/logs/log_label.tscn" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://bdj1j6i4rcg7p" path="res://assets/scripts/handlers/mouseHandler.gd" id="6_tefeu"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" groups=["main"]]
 texture_filter = 1
 
 [node name="camera" type="Camera2D" parent="."]
@@ -25,6 +26,7 @@ tile_map_data = PackedByteArray("AAD8//z/AAAJAAwAAAD9//z/AAAJAAwAAAD+//z/AAAJAAw
 tile_set = ExtResource("1_sugp2")
 
 [node name="walls" type="TileMapLayer" parent="scene/room"]
+z_index = -1
 z_as_relative = false
 tile_map_data = PackedByteArray("AAD8//z/AAAEAAEAAAD9//z/AAAEAAEAAAD+//z/AAAEAAEAAAD///z/AAAEAAEAAAAAAPz/AAAEAAEAAAABAPz/AAAEAAEAAAACAPz/AAAEAAEAAAADAPz/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAPv/AAAEAAAAAAADAPv/AAAEAAAAAAACAPv/AAAEAAAAAAABAPv/AAAEAAAAAAAAAPv/AAAEAAAAAAD///v/AAAEAAAAAAD+//v/AAAEAAAAAAD9//v/AAAEAAAAAAD8//v/AAAEAAAAAAD7//z/AAADAAEAAAD7//v/AAADAAAAAAD7//7/AAACAAMAAAD7//3/AAACAAIAAAD6//7/AAABAAMAAAD5//7/AAABAAMAAAD4//7/AAABAAMAAAD3//7/AAABAAMAAAD6//3/AAABAAIAAAD5//3/AAABAAIAAAD4//3/AAABAAIAAAD3//3/AAABAAIAAAAFAAMAAAAFAAMAAAAEAAMAAAAEAAMAAAADAAMAAAAEAAMAAAACAAMAAAAEAAMAAAABAAMAAAAEAAMAAAAAAAMAAAAEAAMAAAD//wMAAAAEAAMAAAD+/wMAAAAEAAMAAAD9/wMAAAAEAAMAAAD8/wMAAAAEAAMAAAD7/wMAAAADAAMAAAD5/wEAAAAEAAMAAAD4/wEAAAAEAAMAAAD3/wEAAAAEAAMAAAD7/wEAAAABAAcAAAD7/wIAAAADAAIAAAD6/wEAAAAEAAMAAAAFAPv/AAAFAAAAAAAFAPz/AAAFAAEAAAAFAP3/AAAFAAIAAAAFAP7/AAAFAAIAAAAFAP//AAAFAAIAAAAFAAAAAAAFAAIAAAAFAAEAAAAFAAIAAAAFAAIAAAAFAAIAAAA=")
 tile_set = ExtResource("1_sugp2")
@@ -50,7 +52,6 @@ position = Vector2(-85, 40)
 
 [node name="pony" parent="scene" instance=ExtResource("3_tbgi4")]
 y_sort_enabled = true
-position = Vector2(26, -4)
 
 [node name="menu" type="CanvasLayer" parent="."]
 
@@ -66,3 +67,6 @@ grow_vertical = 0
 alignment = 2
 script = ExtResource("4_jyhfs")
 logPrefab = ExtResource("5_tbgi4")
+
+[node name="mouseHandler" type="Node" parent="menu" groups=["mouse_handler"]]
+script = ExtResource("6_tefeu")
