@@ -2,10 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://cy7wh2aoox7cs" path="res://assets/sprites/tilesets/tileset1.png" id="1_8blc2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmxun"]
-size = Vector2(20, 45)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8blc2"]
+size = Vector2(17, 22)
 
 [node name="pillar" type="StaticBody2D"]
+collision_mask = 0
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
@@ -14,5 +15,6 @@ region_enabled = true
 region_rect = Rect2(0.87606, 429.178, 27.7591, 46.2652)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_xmxun")
+position = Vector2(1.81e-06, -1.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8blc2")

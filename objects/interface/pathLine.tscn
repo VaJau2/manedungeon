@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://coqmknqkpl1qf"]
+
+[ext_resource type="Script" uid="uid://c70w3q4r32uq1" path="res://assets/scripts/interface/patlhLine.gd" id="1_j4lfo"]
+[ext_resource type="Texture2D" uid="uid://ca544atmapf0q" path="res://assets/sprites/interface/point.png" id="1_mn0lq"]
+
+[sub_resource type="Gradient" id="Gradient_j4lfo"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[node name="Line2D" type="Line2D"]
+width = 1.5
+default_color = Color(1, 1, 1, 0.14902)
+gradient = SubResource("Gradient_j4lfo")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_j4lfo")
+
+[node name="point" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5, 5)
+scale = Vector2(0.09, 0.094)
+texture = ExtResource("1_mn0lq")

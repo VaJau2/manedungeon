@@ -1,9 +1,10 @@
 extends VBoxContainer
 
+class_name Logs
+
 #----------------------------
 # Создает логи внутри себя
 #----------------------------
-
 
 @export var logPrefab: PackedScene
 

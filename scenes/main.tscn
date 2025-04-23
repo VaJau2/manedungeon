@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dsptvlgm2e17o"]
+[gd_scene load_steps=8 format=4 uid="uid://dsptvlgm2e17o"]
 
 [ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_jyhfs"]
@@ -6,6 +6,11 @@
 [ext_resource type="Script" uid="uid://3u2sanrdi8y4" path="res://assets/scripts/interface/logs.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b35o4r4kb71yi" path="res://objects/interface/logs/log_label.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://bdj1j6i4rcg7p" path="res://assets/scripts/handlers/mouseHandler.gd" id="6_tefeu"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
+vertices = PackedVector2Array(30, -133, 30, -170, 68.9531, -184.117, 68.0391, 8.11719, 31, -73, -231.117, -187.867, -12, -170, 31, -36, -230.867, 11.8672, -11, -36, -170, -37, -11, -73, -212, -37, -229.883, -70, -212, -74, -381.328, -70, -382.656, -109.93, -232.133, -108.93, -170, -74, -12, -133, -171, -133, -171, -170, -213, -170, -213, -133)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 2, 1, 6), PackedInt32Array(7, 3, 8, 9), PackedInt32Array(9, 8, 10, 11), PackedInt32Array(12, 10, 8), PackedInt32Array(12, 8, 13, 14), PackedInt32Array(13, 15, 16, 17, 14), PackedInt32Array(11, 10, 18, 19, 0), PackedInt32Array(6, 19, 18, 20, 21), PackedInt32Array(5, 6, 21), PackedInt32Array(5, 21, 22), PackedInt32Array(17, 5, 22, 23), PackedInt32Array(14, 17, 23, 20, 18), PackedInt32Array(4, 11, 0), PackedInt32Array(4, 3, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -242, -119, -393, -120, -391, -60, -240, -60, -241, 22, 78, 18, 79, -194)])
 
 [node name="main" type="Node2D" groups=["main"]]
 texture_filter = 1
@@ -31,31 +36,33 @@ z_as_relative = false
 tile_map_data = PackedByteArray("AAD8//z/AAAEAAEAAAD9//z/AAAEAAEAAAD+//z/AAAEAAEAAAD///z/AAAEAAEAAAAAAPz/AAAEAAEAAAABAPz/AAAEAAEAAAACAPz/AAAEAAEAAAADAPz/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAPv/AAAEAAAAAAADAPv/AAAEAAAAAAACAPv/AAAEAAAAAAABAPv/AAAEAAAAAAAAAPv/AAAEAAAAAAD///v/AAAEAAAAAAD+//v/AAAEAAAAAAD9//v/AAAEAAAAAAD8//v/AAAEAAAAAAD7//z/AAADAAEAAAD7//v/AAADAAAAAAD7//7/AAACAAMAAAD7//3/AAACAAIAAAD6//7/AAABAAMAAAD5//7/AAABAAMAAAD4//7/AAABAAMAAAD3//7/AAABAAMAAAD6//3/AAABAAIAAAD5//3/AAABAAIAAAD4//3/AAABAAIAAAD3//3/AAABAAIAAAAFAAMAAAAFAAMAAAAEAAMAAAAEAAMAAAADAAMAAAAEAAMAAAACAAMAAAAEAAMAAAABAAMAAAAEAAMAAAAAAAMAAAAEAAMAAAD//wMAAAAEAAMAAAD+/wMAAAAEAAMAAAD9/wMAAAAEAAMAAAD8/wMAAAAEAAMAAAD7/wMAAAADAAMAAAD5/wEAAAAEAAMAAAD4/wEAAAAEAAMAAAD3/wEAAAAEAAMAAAD7/wEAAAABAAcAAAD7/wIAAAADAAIAAAD6/wEAAAAEAAMAAAAFAPv/AAAFAAAAAAAFAPz/AAAFAAEAAAAFAP3/AAAFAAIAAAAFAP7/AAAFAAIAAAAFAP//AAAFAAIAAAAFAAAAAAAFAAIAAAAFAAEAAAAFAAIAAAAFAAIAAAAFAAIAAAA=")
 tile_set = ExtResource("1_sugp2")
 
-[node name="props" type="Node2D" parent="scene/room"]
+[node name="props" type="NavigationRegion2D" parent="scene/room"]
 y_sort_enabled = true
+position = Vector2(104, 88)
+navigation_polygon = SubResource("NavigationPolygon_o6xl0")
 
 [node name="pillar" parent="scene/room/props" instance=ExtResource("2_jyhfs")]
 y_sort_enabled = true
-position = Vector2(-86, -56)
+position = Vector2(-192, -150)
 
 [node name="pillar2" parent="scene/room/props" instance=ExtResource("2_jyhfs")]
 y_sort_enabled = true
-position = Vector2(115, -56)
+position = Vector2(9, -150)
 
 [node name="pillar3" parent="scene/room/props" instance=ExtResource("2_jyhfs")]
 y_sort_enabled = true
-position = Vector2(116, 41)
+position = Vector2(10, -53)
 
 [node name="pillar4" parent="scene/room/props" instance=ExtResource("2_jyhfs")]
 y_sort_enabled = true
-position = Vector2(-85, 40)
+position = Vector2(-191, -54)
 
 [node name="pony" parent="scene" instance=ExtResource("3_tbgi4")]
 y_sort_enabled = true
 
 [node name="menu" type="CanvasLayer" parent="."]
 
-[node name="logs" type="VBoxContainer" parent="menu"]
+[node name="logs" type="VBoxContainer" parent="menu" groups=["logs"]]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
