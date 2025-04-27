@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://drcv3qk77jdcs" path="res://objects/characters/pony.tscn" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://3u2sanrdi8y4" path="res://assets/scripts/interface/logs.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b35o4r4kb71yi" path="res://objects/interface/logs/log_label.tscn" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://bdj1j6i4rcg7p" path="res://assets/scripts/handlers/inputHandler.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://bdj1j6i4rcg7p" path="res://assets/scripts/handlers/mouseHandler.gd" id="6_tefeu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
 vertices = PackedVector2Array(30, -133, 30, -170, 68.9531, -184.117, 68.0391, 8.11719, 31, -73, -231.117, -187.867, -12, -170, 31, -36, -230.867, 11.8672, -11, -36, -170, -37, -11, -73, -212, -37, -229.883, -70, -212, -74, -381.328, -70, -382.656, -109.93, -232.133, -108.93, -170, -74, -12, -133, -171, -133, -171, -170, -213, -170, -213, -133)
@@ -16,10 +16,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -242, -119,
 [node name="main" type="Node2D" groups=["main"]]
 texture_filter = 1
 
-[node name="camera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-zoom = Vector2(2.5, 2.5)
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 script = ExtResource("1_o6xl0")
-player = NodePath("../scene/pony")
 
 [node name="scene" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -78,5 +77,5 @@ alignment = 2
 script = ExtResource("4_jyhfs")
 logPrefab = ExtResource("5_tbgi4")
 
-[node name="inputHandler" type="Node" parent="menu" groups=["input_handler"]]
+[node name="mouseHandler" type="Node" parent="menu" groups=["mouse_handler"]]
 script = ExtResource("6_tefeu")
