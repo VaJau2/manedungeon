@@ -1,12 +1,12 @@
 [gd_scene load_steps=20 format=3 uid="uid://drcv3qk77jdcs"]
 
-[ext_resource type="Texture2D" uid="uid://de0vxpgvm860d" path="res://assets/sprites/characters/pony/base.png" id="1_4as66"]
-[ext_resource type="Script" uid="uid://b2cf4nfutuk4f" path="res://assets/scripts/controllers/inputController.gd" id="2_firod"]
-[ext_resource type="Script" uid="uid://csp1utd40ubch" path="res://assets/scripts/controllers/animationController.gd" id="2_or432"]
-[ext_resource type="Script" uid="uid://6gu4rfslrt2r" path="res://assets/scripts/controllers/movement/movementController.gd" id="2_vqa2r"]
-[ext_resource type="Script" uid="uid://dxiwao0oi3jq3" path="res://assets/scripts/controllers/movement/movementState.gd" id="4_8y2k1"]
-[ext_resource type="Script" uid="uid://dmpaqppbyrddp" path="res://assets/scripts/interface/pathLineDrawer.gd" id="5_jvqss"]
-[ext_resource type="PackedScene" uid="uid://coqmknqkpl1qf" path="res://objects/interface/pathLine.tscn" id="6_javnm"]
+[ext_resource type="Texture2D" uid="uid://de0vxpgvm860d" path="res://assets/sprites/characters/pony/base.png" id="1_g87t3"]
+[ext_resource type="Script" uid="uid://6gu4rfslrt2r" path="res://assets/scripts/controllers/movement/movementController.gd" id="2_53hwf"]
+[ext_resource type="Script" uid="uid://dxiwao0oi3jq3" path="res://assets/scripts/controllers/movement/movementState.gd" id="3_m8dop"]
+[ext_resource type="Script" uid="uid://csp1utd40ubch" path="res://assets/scripts/controllers/animationController.gd" id="4_4tsrb"]
+[ext_resource type="Script" uid="uid://b2cf4nfutuk4f" path="res://assets/scripts/controllers/inputController.gd" id="5_ch64r"]
+[ext_resource type="Script" uid="uid://dmpaqppbyrddp" path="res://assets/scripts/interface/pathLineDrawer.gd" id="6_0xcfp"]
+[ext_resource type="PackedScene" uid="uid://coqmknqkpl1qf" path="res://objects/interface/pathLine.tscn" id="7_w0sbo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtgdr"]
 size = Vector2(15, 4)
@@ -199,7 +199,7 @@ shape = SubResource("RectangleShape2D_jtgdr")
 texture_filter = 1
 position = Vector2(-1, -17)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_4as66")
+texture = ExtResource("1_g87t3")
 hframes = 8
 vframes = 7
 
@@ -209,38 +209,38 @@ libraries = {
 }
 
 [node name="movementController" type="Node" parent="." node_paths=PackedStringArray("nav_agent")]
-script = ExtResource("2_vqa2r")
+script = ExtResource("2_53hwf")
 nav_agent = NodePath("../navAgent")
 print_logs = true
 
 [node name="walk" type="Node" parent="movementController"]
-script = ExtResource("4_8y2k1")
+script = ExtResource("3_m8dop")
 default = true
 
 [node name="run" type="Node" parent="movementController"]
-script = ExtResource("4_8y2k1")
+script = ExtResource("3_m8dop")
 anim = "run"
 speed = 150
 
 [node name="crouch" type="Node" parent="movementController"]
-script = ExtResource("4_8y2k1")
+script = ExtResource("3_m8dop")
 idle_anim = "crouch-idle"
 anim = "crouch"
 speed = 50
 
 [node name="animationController" type="Node" parent="." node_paths=PackedStringArray("sprite", "anim", "movement_controller")]
-script = ExtResource("2_or432")
+script = ExtResource("4_4tsrb")
 sprite = NodePath("../sprite")
 anim = NodePath("../anim")
 movement_controller = NodePath("../movementController")
 
 [node name="inputController" type="Node" parent="." node_paths=PackedStringArray("movement_controller")]
-script = ExtResource("2_firod")
+script = ExtResource("5_ch64r")
 movement_controller = NodePath("../movementController")
 
 [node name="pathLineDrawer" type="Node" parent="." node_paths=PackedStringArray("nav_agent", "movement_controller")]
-script = ExtResource("5_jvqss")
-line_prefab = ExtResource("6_javnm")
+script = ExtResource("6_0xcfp")
+line_prefab = ExtResource("7_w0sbo")
 nav_agent = NodePath("../navAgent")
 movement_controller = NodePath("../movementController")
 

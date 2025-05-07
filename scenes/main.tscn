@@ -1,29 +1,32 @@
-[gd_scene load_steps=13 format=4 uid="uid://dsptvlgm2e17o"]
+[gd_scene load_steps=15 format=4 uid="uid://dsptvlgm2e17o"]
 
 [ext_resource type="Script" uid="uid://bidea2fourwak" path="res://assets/scripts/interface/camera.gd" id="1_o6xl0"]
 [ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://drcv3qk77jdcs" path="res://objects/characters/pony.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dxxrvduj36qyw" path="res://objects/props/pot.tscn" id="4_eb6dy"]
 [ext_resource type="Script" uid="uid://3u2sanrdi8y4" path="res://assets/scripts/interface/logs.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cbml1cigcyfgk" path="res://assets/scripts/playerSpawner.gd" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://b35o4r4kb71yi" path="res://objects/interface/logs/log_label.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://bdj1j6i4rcg7p" path="res://assets/scripts/handlers/inputHandler.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://drcv3qk77jdcs" path="res://objects/characters/player.tscn" id="6_trceg"]
 [ext_resource type="PackedScene" uid="uid://bjrvoxtu821fj" path="res://objects/interface/icons/moving_icon.tscn" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://6cc5qe5r0iep" path="res://assets/sprites/interface/moving/walk.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b2xvxif64gb25" path="res://assets/sprites/interface/moving/run.png" id="10_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://c24psihbbsxam" path="res://assets/sprites/interface/moving/crouch.png" id="11_trceg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
-vertices = PackedVector2Array(30, -133, 30, -170, 68.9531, -184.117, 68.0391, 8.11719, 31, -73, -231.117, -187.867, -12, -170, 31, -36, -230.867, 11.8672, -11, -36, -170, -37, -11, -73, -212, -37, -229.883, -70, -212, -74, -381.328, -70, -382.656, -109.93, -232.133, -108.93, -170, -74, -12, -133, -171, -133, -171, -170, -213, -170, -213, -133)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 2, 1, 6), PackedInt32Array(7, 3, 8, 9), PackedInt32Array(9, 8, 10, 11), PackedInt32Array(12, 10, 8), PackedInt32Array(12, 8, 13, 14), PackedInt32Array(13, 15, 16, 17, 14), PackedInt32Array(11, 10, 18, 19, 0), PackedInt32Array(6, 19, 18, 20, 21), PackedInt32Array(5, 6, 21), PackedInt32Array(5, 21, 22), PackedInt32Array(17, 5, 22, 23), PackedInt32Array(14, 17, 23, 20, 18), PackedInt32Array(4, 11, 0), PackedInt32Array(4, 3, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -242, -119, -393, -120, -391, -60, -240, -60, -241, 22, 78, 18, 79, -194)])
+vertices = PackedVector2Array(-245, -333, -172.211, -326.844, -302.688, -324.852, -464, -329, -287, -333, -1, -78, 31, -73, -11, -73, -35, -78, 30, -133, 30, -170, 68.9531, -184.117, 68.0391, 8.11719, -231.117, -187.867, -12, -170, 31, -36, -230.867, 11.8672, -11, -36, -170, -37, -212, -37, -229.883, -69.9531, -212, -74, -173.789, -401.867, -245, -370, -547.727, -397.117, -287, -370, -515, -280, -515, -261.82, -544.227, -264.227, -447.672, -70.9531, -446, -121.883, -393.688, -110.07, -464, -366, -506, -366, -506, -329, -481, -280, -332, -281, -241, -92, -241, -108.992, -232.133, -108.93, -170, -74, -35, -110, -304.078, -281, -481, -259.008, -332, -260.023, -398.297, -256.461, -447.07, -256.219, -171, -133, -171, -170, -12, -133, -213, -170, -213, -133, -294, -109.359, -294, -92, -1, -110)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 6), PackedInt32Array(13, 11, 10, 14), PackedInt32Array(15, 12, 16, 17), PackedInt32Array(7, 17, 16, 18, 8), PackedInt32Array(19, 18, 16), PackedInt32Array(19, 16, 20, 21), PackedInt32Array(22, 1, 0, 23), PackedInt32Array(24, 22, 23, 25), PackedInt32Array(26, 27, 28, 24), PackedInt32Array(20, 29, 30, 31), PackedInt32Array(4, 3, 32, 25), PackedInt32Array(24, 25, 32, 33), PackedInt32Array(26, 24, 33, 34), PackedInt32Array(35, 26, 34, 3, 36), PackedInt32Array(37, 38, 39, 21, 20), PackedInt32Array(8, 18, 40, 41), PackedInt32Array(3, 2, 42, 36), PackedInt32Array(43, 35, 36, 44, 45, 46), PackedInt32Array(30, 46, 45, 31), PackedInt32Array(47, 48, 14, 49, 41, 40), PackedInt32Array(13, 14, 48), PackedInt32Array(13, 48, 50), PackedInt32Array(39, 13, 50, 51), PackedInt32Array(31, 52, 53), PackedInt32Array(20, 31, 53), PackedInt32Array(20, 53, 37), PackedInt32Array(6, 5, 54, 9), PackedInt32Array(21, 39, 51, 47, 40), PackedInt32Array(54, 41, 49, 9), PackedInt32Array(6, 12, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -242, -119, -384, -120, -388, -247, -295, -252, -293, -315, -162, -317, -164, -412, -558, -407, -554, -255, -457, -247, -456, -122, -458, -61, -240, -60, -241, 22, 78, 18, 79, -194)])
 
-[node name="main" type="Node2D" groups=["main"]]
+[node name="main" type="Node2D"]
 texture_filter = 1
 
-[node name="camera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="camera" type="Camera2D" parent="." node_paths=PackedStringArray("player_spawner", "input_handler")]
 zoom = Vector2(2.5, 2.5)
 script = ExtResource("1_o6xl0")
-player = NodePath("../scene/pony")
+player_spawner = NodePath("../scene/playerSpawner")
+input_handler = NodePath("../menu/inputHandler")
 
 [node name="scene" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -34,13 +37,13 @@ y_sort_enabled = true
 [node name="floor" type="TileMapLayer" parent="scene/room"]
 z_index = -1
 z_as_relative = false
-tile_map_data = PackedByteArray("AAD8//z/AAAJAAwAAAD9//z/AAAJAAwAAAD+//z/AAAJAAwAAAD///z/AAAJAAwAAAAAAPz/AAAJAAwAAAABAPz/AAAJAAwAAAACAPz/AAAJAAwAAAADAPz/AAAJAAwAAAAEAPz/AAAJAAwAAAAFAPz/AAAJAAwAAAAFAP3/AAAJAAwAAAAFAP7/AAAJAAwAAAAFAP//AAAJAAwAAAAFAAAAAAAJAAwAAAAFAAEAAAAJAAwAAAD//wEAAAAIAAUAAAAAAAEAAAAIAAUAAAABAAEAAAAIAAUAAAACAAEAAAAIAAUAAAADAAEAAAAIAAUAAAAEAAEAAAAIAAUAAAD8/wEAAAAIAAUAAAD9/wEAAAAIAAUAAAD+/wEAAAAIAAUAAAD7//3/AAAJAAwAAAD7//7/AAAJAAUAAAD7////AAAFAAwAAAD7/wAAAAAFAAwAAAD7/wEAAAAJAAwAAAD7//z/AAAJAAwAAAD8//3/AAAIAAUAAAD8//7/AAAIAAUAAAD8////AAAIAAUAAAD8/wAAAAAIAAUAAAD9//3/AAAIAAUAAAD9//7/AAAJAAYAAAD9////AAAJAAYAAAD9/wAAAAAJAAYAAAD+//3/AAAIAAUAAAD+//7/AAAJAAYAAAD+////AAAJAAYAAAD+/wAAAAAJAAYAAAD///3/AAAIAAUAAAD///7/AAAJAAYAAAD/////AAAJAAYAAAD//wAAAAAJAAYAAAAAAP3/AAAIAAUAAAAAAP7/AAAJAAYAAAAAAP//AAAJAAYAAAAAAAAAAAAJAAYAAAABAP3/AAAIAAUAAAABAP7/AAAJAAYAAAABAP//AAAJAAYAAAABAAAAAAAJAAYAAAACAP3/AAAIAAUAAAACAP7/AAAJAAYAAAACAP//AAAJAAYAAAACAAAAAAAJAAYAAAADAP3/AAAIAAUAAAADAP7/AAAJAAYAAAADAP//AAAJAAYAAAADAAAAAAAJAAYAAAAEAP3/AAAIAAUAAAAEAP7/AAAIAAUAAAAEAP//AAAIAAUAAAAEAAAAAAAIAAUAAAD6////AAAFAAwAAAD5////AAAFAAwAAAD4////AAAFAAwAAAD6/wAAAAAFAAwAAAD5/wAAAAAFAAwAAAD4/wAAAAAFAAwAAAD3/wAAAAAFAAwAAAD3////AAAFAAwAAAD6//7/AAAKAAUAAAD5//7/AAAKAAUAAAD4//7/AAAKAAUAAAD3//7/AAAKAAUAAAAFAAIAAAAJAAwAAAAEAAIAAAAJAAwAAAADAAIAAAAJAAwAAAACAAIAAAAJAAwAAAABAAIAAAAJAAwAAAAAAAIAAAAJAAwAAAD//wIAAAAJAAwAAAD+/wIAAAAJAAwAAAD9/wIAAAAJAAwAAAD8/wIAAAAJAAwAAAD7/wIAAAAJAAwAAAA=")
+tile_map_data = PackedByteArray("AAD8//z/AAAJAAwAAAD9//z/AAAJAAwAAAD+//z/AAAJAAwAAAD///z/AAAJAAwAAAAAAPz/AAAJAAwAAAABAPz/AAAJAAwAAAACAPz/AAAJAAwAAAADAPz/AAAJAAwAAAAEAPz/AAAJAAwAAAAFAPz/AAAJAAwAAAAFAP3/AAAJAAwAAAAFAP7/AAAJAAwAAAAFAP//AAAJAAwAAAAFAAAAAAAJAAwAAAAFAAEAAAAJAAwAAAD//wEAAAAIAAUAAAAAAAEAAAAIAAUAAAABAAEAAAAIAAUAAAACAAEAAAAIAAUAAAADAAEAAAAIAAUAAAAEAAEAAAAIAAUAAAD8/wEAAAAIAAUAAAD9/wEAAAAIAAUAAAD+/wEAAAAIAAUAAAD7//3/AAAJAAwAAAD7//7/AAAJAAUAAAD7////AAAFAAwAAAD7/wAAAAAFAAwAAAD7/wEAAAAJAAwAAAD7//z/AAAJAAwAAAD8//3/AAAIAAUAAAD8//7/AAAIAAUAAAD8////AAAIAAUAAAD8/wAAAAAIAAUAAAD9//3/AAAIAAUAAAD9//7/AAAJAAYAAAD9////AAAJAAYAAAD9/wAAAAAJAAYAAAD+//3/AAAIAAUAAAD+//7/AAAJAAYAAAD+////AAAJAAYAAAD+/wAAAAAJAAYAAAD///3/AAAIAAUAAAD///7/AAAJAAYAAAD/////AAAJAAYAAAD//wAAAAAJAAYAAAAAAP3/AAAIAAUAAAAAAP7/AAAJAAYAAAAAAP//AAAJAAYAAAAAAAAAAAAJAAYAAAABAP3/AAAIAAUAAAABAP7/AAAJAAYAAAABAP//AAAJAAYAAAABAAAAAAAJAAYAAAACAP3/AAAIAAUAAAACAP7/AAAJAAYAAAACAP//AAAJAAYAAAACAAAAAAAJAAYAAAADAP3/AAAIAAUAAAADAP7/AAAJAAYAAAADAP//AAAJAAYAAAADAAAAAAAJAAYAAAAEAP3/AAAIAAUAAAAEAP7/AAAIAAUAAAAEAP//AAAIAAUAAAAEAAAAAAAIAAUAAAD6////AAAFAAwAAAD5////AAAFAAwAAAD4////AAAFAAwAAAD6/wAAAAAFAAwAAAD5/wAAAAAFAAwAAAD4/wAAAAAFAAwAAAD3/wAAAAAFAAwAAAD3////AAAFAAwAAAD6//7/AAAKAAUAAAD5//7/AAAKAAUAAAD4//7/AAAKAAUAAAD3//7/AAAKAAUAAAAFAAIAAAAJAAwAAAAEAAIAAAAJAAwAAAADAAIAAAAJAAwAAAACAAIAAAAJAAwAAAABAAIAAAAJAAwAAAAAAAIAAAAJAAwAAAD//wIAAAAJAAwAAAD+/wIAAAAJAAwAAAD9/wIAAAAJAAwAAAD8/wIAAAAJAAwAAAD7/wIAAAAJAAwAAAD2////AAAFAAgAAAD2//7/AAAFAAgAAAD2//3/AAAFAAgAAAD2//z/AAAFAAgAAAD2/wAAAAAFAAgAAAD1/wAAAAAFAAgAAAD1////AAAFAAgAAAD1//7/AAAFAAgAAAD1//3/AAAFAAgAAAD1//z/AAAFAAgAAAD2//v/AAAFAAgAAAD2//r/AAAFAAgAAAD1//r/AAAFAAgAAAD1//v/AAAFAAgAAAD3//r/AAAFAAgAAAD4//r/AAAFAAgAAAD5//r/AAAFAAgAAAD5//j/AAAFAAgAAAD4//j/AAAJAAYAAAD3//j/AAAJAAYAAAD2//j/AAAJAAYAAAD1//j/AAAJAAYAAAD0//j/AAAFAAgAAADz//j/AAAFAAgAAADz//n/AAAFAAgAAADz//r/AAAFAAgAAAD0//r/AAAFAAgAAAD4//n/AAAFAAgAAAD5//n/AAAFAAgAAAD3//n/AAAJAAYAAAD2//n/AAAJAAYAAAD1//n/AAAJAAYAAAD0//n/AAAFAAgAAAD6//j/AAAKAAUAAAD7//j/AAAKAAUAAAD8//j/AAAKAAUAAAD9//j/AAAKAAUAAAD9//f/AAAKAAUAAAD9//b/AAAKAAUAAAD8//b/AAAKAAUAAAD7//b/AAAKAAUAAAD6//b/AAAKAAUAAAD5//b/AAAFAAgAAAD4//b/AAAFAAgAAAD3//b/AAAFAAgAAAD2//b/AAAFAAgAAAD1//b/AAAFAAgAAAD0//b/AAAFAAgAAADz//b/AAAFAAgAAADz//f/AAAFAAgAAAD0//f/AAAFAAgAAAD1//f/AAAJAAYAAAD2//f/AAAJAAYAAAD3//f/AAAJAAYAAAD4//f/AAAJAAYAAAD5//f/AAAFAAgAAAD6//f/AAAKAAUAAAD7//f/AAAKAAUAAAD8//f/AAAKAAUAAADy//r/AAAKAAUAAADy//n/AAAKAAUAAADy//j/AAAKAAUAAADy//f/AAAKAAUAAADy//b/AAAFAAgAAADy//X/AAAKAAUAAADz//X/AAAKAAUAAAD0//X/AAAKAAUAAAD1//X/AAAKAAUAAAD2//X/AAAKAAUAAAD3//X/AAAKAAUAAAD4//X/AAAKAAUAAAD5//X/AAAKAAUAAAD6//X/AAAKAAUAAAD7//X/AAAKAAUAAAD8//X/AAAKAAUAAAD9//X/AAAKAAUAAAD0//v/AAAKAAUAAAD0//z/AAAKAAYAAAD0//3/AAAKAAYAAAD0//7/AAAKAAYAAAD0////AAAKAAYAAAD0/wAAAAAKAAYAAAD3//3/AAAKAAYAAAD3//z/AAAKAAYAAAD3//v/AAAKAAUAAAD+//X/AAAKAAUAAAD+//b/AAAKAAUAAAD+//f/AAAKAAUAAAD+//j/AAAKAAUAAAD+//n/AAAKAAUAAADx//n/AAAKAAUAAADx//j/AAAKAAUAAADx//f/AAAKAAUAAADx//b/AAAKAAUAAADx//X/AAAKAAUAAADx//r/AAAIAAUAAADx//v/AAAKAAUAAADy//v/AAAKAAUAAADz//v/AAAKAAUAAAD4//v/AAAKAAUAAAD5//v/AAAKAAUAAAD6//v/AAAKAAUAAAD6//n/AAALAAYAAAD6//r/AAALAAYAAAD7//n/AAALAAYAAAD8//n/AAALAAYAAAD9//n/AAALAAYAAAA=")
 tile_set = ExtResource("1_sugp2")
 
 [node name="walls" type="TileMapLayer" parent="scene/room"]
 z_index = -1
 z_as_relative = false
-tile_map_data = PackedByteArray("AAD8//z/AAAEAAEAAAD9//z/AAAEAAEAAAD+//z/AAAEAAEAAAD///z/AAAEAAEAAAAAAPz/AAAEAAEAAAABAPz/AAAEAAEAAAACAPz/AAAEAAEAAAADAPz/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAPv/AAAEAAAAAAADAPv/AAAEAAAAAAACAPv/AAAEAAAAAAABAPv/AAAEAAAAAAAAAPv/AAAEAAAAAAD///v/AAAEAAAAAAD+//v/AAAEAAAAAAD9//v/AAAEAAAAAAD8//v/AAAEAAAAAAD7//z/AAADAAEAAAD7//v/AAADAAAAAAD7//7/AAACAAMAAAD7//3/AAACAAIAAAD6//7/AAABAAMAAAD5//7/AAABAAMAAAD4//7/AAABAAMAAAD3//7/AAABAAMAAAD6//3/AAABAAIAAAD5//3/AAABAAIAAAD4//3/AAABAAIAAAD3//3/AAABAAIAAAAFAAMAAAAFAAMAAAAEAAMAAAAEAAMAAAADAAMAAAAEAAMAAAACAAMAAAAEAAMAAAABAAMAAAAEAAMAAAAAAAMAAAAEAAMAAAD//wMAAAAEAAMAAAD+/wMAAAAEAAMAAAD9/wMAAAAEAAMAAAD8/wMAAAAEAAMAAAD7/wMAAAADAAMAAAD5/wEAAAAEAAMAAAD4/wEAAAAEAAMAAAD3/wEAAAAEAAMAAAD7/wEAAAABAAcAAAD7/wIAAAADAAIAAAD6/wEAAAAEAAMAAAAFAPv/AAAFAAAAAAAFAPz/AAAFAAEAAAAFAP3/AAAFAAIAAAAFAP7/AAAFAAIAAAAFAP//AAAFAAIAAAAFAAAAAAAFAAIAAAAFAAEAAAAFAAIAAAAFAAIAAAAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAD8//z/AAAEAAEAAAD9//z/AAAEAAEAAAD+//z/AAAEAAEAAAD///z/AAAEAAEAAAAAAPz/AAAEAAEAAAABAPz/AAAEAAEAAAACAPz/AAAEAAEAAAADAPz/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAPv/AAAEAAAAAAADAPv/AAAEAAAAAAACAPv/AAAEAAAAAAABAPv/AAAEAAAAAAAAAPv/AAAEAAAAAAD///v/AAAEAAAAAAD+//v/AAAEAAAAAAD9//v/AAAEAAAAAAD8//v/AAAEAAAAAAD7//z/AAADAAEAAAD7//v/AAADAAAAAAD7//7/AAACAAMAAAD7//3/AAACAAIAAAD6//7/AAABAAMAAAD5//7/AAABAAMAAAD4//7/AAABAAMAAAD3//7/AAAAAAMAAAD6//3/AAABAAIAAAD5//3/AAABAAIAAAD4//3/AAABAAIAAAD3//3/AAAAAAIAAAAFAAMAAAAFAAMAAAAEAAMAAAAEAAMAAAADAAMAAAAEAAMAAAACAAMAAAAEAAMAAAABAAMAAAAEAAMAAAAAAAMAAAAEAAMAAAD//wMAAAAEAAMAAAD+/wMAAAAEAAMAAAD9/wMAAAAEAAMAAAD8/wMAAAAEAAMAAAD7/wMAAAADAAMAAAD5/wEAAAAEAAMAAAD4/wEAAAAEAAMAAAD3/wEAAAAEAAMAAAD7/wEAAAABAAcAAAD7/wIAAAADAAIAAAD6/wEAAAAEAAMAAAAFAPv/AAAFAAAAAAAFAPz/AAAFAAEAAAAFAP3/AAAFAAIAAAAFAP7/AAAFAAIAAAAFAP//AAAFAAIAAAAFAAAAAAAFAAIAAAAFAAEAAAAFAAIAAAAFAAIAAAAFAAIAAAD2/wEAAAAEAAMAAAD1/wEAAAAEAAMAAAD0/wAAAAADAAIAAAD0////AAADAAIAAAD0//7/AAADAAIAAAD0/wEAAAADAAMAAAD0//3/AAADAAIAAAD0//z/AAADAAIAAAD0//v/AAABAAcAAAD3//z/AAAAAAEAAAD3//v/AAACAAcAAAD4//v/AAAEAAMAAAD5//v/AAAEAAMAAADz//v/AAAEAAMAAADy//v/AAAEAAMAAAD6//n/AAACAAcAAAD7//n/AAAEAAMAAAD8//n/AAAEAAMAAAD9//n/AAAEAAMAAAD9//X/AAABAAMAAAD8//X/AAABAAMAAAD7//X/AAABAAMAAAD6//X/AAABAAMAAAD5//X/AAABAAMAAAD4//X/AAABAAMAAAD3//X/AAABAAMAAAD2//X/AAABAAMAAAD1//X/AAABAAMAAAD0//X/AAABAAMAAADz//X/AAABAAMAAADy//X/AAABAAMAAADy//T/AAABAAIAAADz//T/AAABAAIAAAD0//T/AAABAAIAAAD1//T/AAABAAIAAAD2//T/AAABAAIAAAD3//T/AAABAAIAAAD4//T/AAABAAIAAAD5//T/AAABAAIAAAD6//T/AAABAAIAAAD7//T/AAABAAIAAAD8//T/AAABAAIAAAD9//T/AAABAAIAAAD+//T/AAAFAAAAAAD+//X/AAAFAAEAAAD+//b/AAAFAAIAAAD+//f/AAAFAAIAAAD+//j/AAAFAAIAAADx//T/AAADAAAAAADx//X/AAADAAEAAADx//b/AAADAAIAAADx//f/AAADAAIAAADx//j/AAADAAIAAAD+//n/AAAFAAMAAADx//n/AAADAAIAAAD6//r/AAAFAAIAAADx//r/AAADAAIAAADx//v/AAADAAMAAAD6//v/AAADAAcAAAA=")
 tile_set = ExtResource("1_sugp2")
 
 [node name="props" type="NavigationRegion2D" parent="scene/room"]
@@ -64,8 +67,32 @@ position = Vector2(10, -53)
 y_sort_enabled = true
 position = Vector2(-191, -54)
 
-[node name="pony" parent="scene" instance=ExtResource("3_tbgi4")]
+[node name="pillar5" parent="scene/room/props" instance=ExtResource("2_jyhfs")]
 y_sort_enabled = true
+position = Vector2(-266, -350)
+
+[node name="pillar6" parent="scene/room/props" instance=ExtResource("2_jyhfs")]
+y_sort_enabled = true
+position = Vector2(-485, -346)
+
+[node name="pot" parent="scene/room/props" instance=ExtResource("4_eb6dy")]
+position = Vector2(-258, -109)
+
+[node name="pot2" parent="scene/room/props" instance=ExtResource("4_eb6dy")]
+position = Vector2(-277, -109)
+
+[node name="pot3" parent="scene/room/props" instance=ExtResource("4_eb6dy")]
+position = Vector2(-18, -95)
+
+[node name="pot4" parent="scene/room/props" instance=ExtResource("4_eb6dy")]
+position = Vector2(-315, -266)
+
+[node name="pot5" parent="scene/room/props" instance=ExtResource("4_eb6dy")]
+position = Vector2(-498, -265)
+
+[node name="playerSpawner" type="Node2D" parent="scene" groups=["player_spawner"]]
+script = ExtResource("5_eb6dy")
+player_prefab = ExtResource("6_trceg")
 
 [node name="menu" type="CanvasLayer" parent="."]
 
@@ -82,7 +109,7 @@ alignment = 2
 script = ExtResource("4_jyhfs")
 logPrefab = ExtResource("5_tbgi4")
 
-[node name="inputHandler" type="Control" parent="menu" groups=["input_handler"]]
+[node name="inputHandler" type="Control" parent="menu"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,8 +117,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_tefeu")
+metadata/_edit_lock_ = true
 
-[node name="moving_icon" parent="menu" node_paths=PackedStringArray("player") instance=ExtResource("8_tipki")]
+[node name="moving_icon" parent="menu" node_paths=PackedStringArray("player_spawner") instance=ExtResource("8_tipki")]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -108,4 +136,4 @@ state_icons = {
 "run": ExtResource("10_eb6dy"),
 "walk": ExtResource("9_ya4ey")
 }
-player = NodePath("../../scene/pony")
+player_spawner = NodePath("../../scene/playerSpawner")

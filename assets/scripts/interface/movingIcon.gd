@@ -4,13 +4,17 @@ extends Control
 var default_color: Color
 
 @export var state_icons: Dictionary
-@export var player: CharacterBody2D
+@export var player_spawner: PlayerSpawner
 
 var player_cotroller: MovementController
 
 
 func _ready() -> void:
 	default_color = icon.modulate
+	player_spawner.player_loaded.connect(_on_player_loaded)
+
+
+func _on_player_loaded(player: CharacterBody2D) -> void:
 	player_cotroller = player.get_node("movementController")
 	load_icon(player_cotroller.current_state.name)
 	player_cotroller.state_changed.connect(load_icon)

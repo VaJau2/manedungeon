@@ -17,7 +17,7 @@ signal key_crouching
 signal zoom_in
 signal zoom_out
 
-@onready var main: Node2D = get_tree().get_first_node_in_group("main")
+@onready var main: Node2D = get_node('/root/main')
 
 var mouse_on: bool = false
 var is_dragging: bool = false

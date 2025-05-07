@@ -6,7 +6,7 @@ var is_key_moving: bool = false
 
 
 func _ready() -> void:
-	input_handler = get_tree().get_first_node_in_group("input_handler")
+	input_handler = get_node("/root/main/menu/inputHandler")
 	input_handler.click.connect(_on_click)
 	input_handler.key_running.connect(_on_running)
 	input_handler.key_crouching.connect(_on_crouching)
