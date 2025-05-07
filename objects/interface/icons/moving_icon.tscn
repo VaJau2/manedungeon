@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjrvoxtu821fj"]
+
+[ext_resource type="Texture2D" uid="uid://do0ynuxu1cr7k" path="res://assets/sprites/interface/moving/moving_background.png" id="1_t5awe"]
+[ext_resource type="Script" uid="uid://dpk66l7p1gxer" path="res://assets/scripts/interface/movingIcon.gd" id="1_t7abm"]
+[ext_resource type="Texture2D" uid="uid://6cc5qe5r0iep" path="res://assets/sprites/interface/moving/walk.png" id="2_t7abm"]
+
+[node name="moving_icon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 0.135986
+offset_bottom = 0.0639954
+script = ExtResource("1_t7abm")
+metadata/_edit_group_ = true
+
+[node name="background" type="TextureRect" parent="."]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t5awe")
+
+[node name="icon" type="TextureRect" parent="."]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t7abm")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

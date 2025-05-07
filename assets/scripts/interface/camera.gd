@@ -12,12 +12,12 @@ const KEY_MOVING_SPEED = 5.0
 
 @onready var target_zoom = self.zoom.x
 @export var player: CharacterBody2D
+var input_handler: InputHandler
 
 
 func _ready() -> void:
-	var input_handler = get_tree().get_first_node_in_group("input_handler")
+	input_handler = get_tree().get_first_node_in_group("input_handler")
 	input_handler.dragging.connect(dragging)
-	input_handler.key_moving.connect(key_moving)
 	input_handler.zoom_in.connect(zoom_in)
 	input_handler.zoom_out.connect(zoom_out)
 
@@ -25,6 +25,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if G.settings.keys_moving == Enums.KeyMoving.player:
 		global_position = player.global_position
+	
+	if G.settings.keys_moving == Enums.KeyMoving.camera:
+		var new_velocity = input_handler.get_dir()
+		if new_velocity.length() > 0:
+			translate(new_velocity / zoom * KEY_MOVING_SPEED)
 
 
 func _physics_process(delta: float) -> void:
@@ -32,15 +37,9 @@ func _physics_process(delta: float) -> void:
 	set_physics_process(not is_equal_approx(zoom.x, target_zoom))
 
 
-
 func dragging(new_velocity: Vector2) -> void:
 	if G.settings.keys_moving == Enums.KeyMoving.camera:
 		translate(-new_velocity / zoom)
-
-
-func key_moving(new_velocity: Vector2) -> void:
-	if G.settings.keys_moving == Enums.KeyMoving.camera:
-		translate(new_velocity / zoom * KEY_MOVING_SPEED)
 
 
 func zoom_in() -> void:

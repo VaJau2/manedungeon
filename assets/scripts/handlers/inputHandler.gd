@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 class_name InputHandler
 
@@ -8,11 +8,12 @@ class_name InputHandler
 # Соединяется через другие ноды с помощью сигналов
 #-----------------------------------------------
  
-const MIN_MOUSE_RELATIVE: float = 0.5
+const MIN_MOUSE_RELATIVE: float = 1
 
 signal click(scenePos: Vector2)
 signal dragging(velocity: Vector2)
-signal key_moving(velocity: Vector2)
+signal key_running
+signal key_crouching
 signal zoom_in
 signal zoom_out
 
@@ -22,7 +23,7 @@ var mouse_on: bool = false
 var is_dragging: bool = false
 
 
-func _input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_WHEEL_UP:
@@ -43,12 +44,14 @@ func _input(event: InputEvent) -> void:
 			dragging.emit(event.relative)
 
 
-func _process(_delta: float) -> void:
-	var dir = get_dir()
-	if dir.length() > 0: key_moving.emit(dir)
-	
+func _process(_delta: float) -> void:	
 	if Input.is_action_just_pressed("ui_change_keys_moving"):
 		change_keys_moving_value()
+	
+	if Input.is_action_just_pressed("ui_run"):
+		key_running.emit()
+	if Input.is_action_just_pressed("ui_crouch"):
+		key_crouching.emit()
 
 
 func get_dir() -> Vector2:

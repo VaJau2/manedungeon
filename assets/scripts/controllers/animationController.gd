@@ -9,20 +9,21 @@ var watch_velocity: bool = false
 
 
 func _ready() -> void:
-	movement_controller.move.connect(on_mode)
+	movement_controller.move.connect(on_move)
 	movement_controller.stop.connect(on_stop)
+	on_stop()
 
 
 func on_stop() -> void:
-	anim.play("idle")
+	anim.play(movement_controller.current_state.idle_anim)
 	watch_velocity = false
 
 
-func on_mode() -> void:
-	anim.play("walk")
+func on_move() -> void:
+	anim.play(movement_controller.current_state.anim)
 	watch_velocity = true
 
 
 func _process(_delta) -> void:
-	if watch_velocity:
+	if watch_velocity and parent.velocity.x != 0:
 		sprite.flip_h = parent.velocity.x < 0
