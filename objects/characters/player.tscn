@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://drcv3qk77jdcs"]
+[gd_scene load_steps=21 format=3 uid="uid://drcv3qk77jdcs"]
 
 [ext_resource type="Texture2D" uid="uid://de0vxpgvm860d" path="res://assets/sprites/characters/pony/base.png" id="1_g87t3"]
 [ext_resource type="Script" uid="uid://6gu4rfslrt2r" path="res://assets/scripts/controllers/movement/movementController.gd" id="2_53hwf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b2cf4nfutuk4f" path="res://assets/scripts/controllers/inputController.gd" id="5_ch64r"]
 [ext_resource type="Script" uid="uid://dmpaqppbyrddp" path="res://assets/scripts/interface/pathLineDrawer.gd" id="6_0xcfp"]
 [ext_resource type="PackedScene" uid="uid://coqmknqkpl1qf" path="res://objects/interface/pathLine.tscn" id="7_w0sbo"]
+[ext_resource type="Texture2D" uid="uid://b6gyjhc7geide" path="res://assets/sprites/effects/light.png" id="8_53hwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtgdr"]
 size = Vector2(15, 4)
@@ -220,7 +221,7 @@ default = true
 [node name="run" type="Node" parent="movementController"]
 script = ExtResource("3_m8dop")
 anim = "run"
-speed = 150
+speed = 200
 
 [node name="crouch" type="Node" parent="movementController"]
 script = ExtResource("3_m8dop")
@@ -245,6 +246,12 @@ nav_agent = NodePath("../navAgent")
 movement_controller = NodePath("../movementController")
 
 [node name="navAgent" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
 radius = 50.0
 debug_use_custom = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.635294, 0.486275)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.807843)
+texture = ExtResource("8_53hwf")
+texture_scale = 2.5

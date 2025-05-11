@@ -89,6 +89,10 @@ ui_crouch={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_4="ray_cast_only"
+
 [rendering]
 
 renderer/rendering_method="mobile"

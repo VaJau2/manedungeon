@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://drcv3qk77jdcs" path="res://objects/characters/player.tscn" id="6_trceg"]
 [ext_resource type="Texture2D" uid="uid://ce2601ol1flts" path="res://assets/sprites/effects/fog.png" id="7_jkv2x"]
 [ext_resource type="Script" uid="uid://cj42o7dbawevg" path="res://assets/scripts/props/fogTile.gd" id="8_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://bjrvoxtu821fj" path="res://objects/interface/icons/movement_icon.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bjrvoxtu821fj" path="res://objects/interface/icons/moving_icon.tscn" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://6cc5qe5r0iep" path="res://assets/sprites/interface/moving/walk.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b2xvxif64gb25" path="res://assets/sprites/interface/moving/run.png" id="10_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://c24psihbbsxam" path="res://assets/sprites/interface/moving/crouch.png" id="11_trceg"]
-[ext_resource type="Theme" uid="uid://c255nf625dsau" path="res://assets/fonts/pixel_theme.tres" id="14_jkv2x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
 vertices = PackedVector2Array(-245, -333, -172.211, -326.844, -302.688, -324.852, -464, -329, -287, -333, -1, -78, 31, -73, -11, -73, -35, -78, 30, -133, 30, -170, 68.9531, -184.117, 68.0391, 8.11719, -231.117, -187.867, -12, -170, 31, -36, -230.867, 11.8672, -11, -36, -170, -37, -212, -37, -229.883, -69.9531, -212, -74, -173.789, -401.867, -245, -370, -547.727, -397.117, -287, -370, -515, -280, -515, -261.82, -544.227, -264.227, -447.672, -70.9531, -446, -121.883, -393.688, -110.07, -464, -366, -506, -366, -506, -329, -481, -280, -332, -281, -241, -92, -241, -108.992, -232.133, -108.93, -170, -74, -35, -110, -304.078, -281, -481, -259.008, -332, -260.023, -398.297, -256.461, -447.07, -256.219, -171, -133, -171, -170, -12, -133, -213, -170, -213, -133, -294, -109.359, -294, -92, -1, -110)
@@ -106,8 +106,7 @@ position = Vector2(-498, -265)
 script = ExtResource("5_eb6dy")
 player_prefab = ExtResource("6_trceg")
 
-[node name="fog" type="TileMapLayer" parent="scene" node_paths=PackedStringArray("player_spawner") groups=["fog"]]
-z_index = 1
+[node name="fog" type="TileMapLayer" parent="scene" node_paths=PackedStringArray("player_spawner")]
 tile_set = SubResource("TileSet_jkv2x")
 script = ExtResource("8_jbj1t")
 player_spawner = NodePath("../playerSpawner")
@@ -137,54 +136,21 @@ grow_vertical = 2
 script = ExtResource("6_tefeu")
 metadata/_edit_lock_ = true
 
-[node name="run_icon" parent="menu" node_paths=PackedStringArray("player_spawner") instance=ExtResource("8_tipki")]
+[node name="moving_icon" parent="menu" node_paths=PackedStringArray("player_spawner") instance=ExtResource("8_tipki")]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -72.0
-offset_right = -20.0
-offset_bottom = -12.0
+offset_left = -73.0
+offset_top = -71.0
+offset_right = -13.0
+offset_bottom = -11.0
 grow_horizontal = 0
 grow_vertical = 0
-my_state_name = "run"
-my_state_icon = ExtResource("10_eb6dy")
+state_icons = {
+"crouch": ExtResource("11_trceg"),
+"run": ExtResource("10_eb6dy"),
+"walk": ExtResource("9_ya4ey")
+}
 player_spawner = NodePath("../../scene/playerSpawner")
-
-[node name="Label" type="Label" parent="menu/run_icon"]
-layout_mode = 0
-offset_top = -26.0
-offset_right = 56.0
-offset_bottom = -1.0
-theme = ExtResource("14_jkv2x")
-theme_override_font_sizes/font_size = 22
-text = "shift"
-horizontal_alignment = 1
-
-[node name="crouch_icon" parent="menu" node_paths=PackedStringArray("player_spawner") instance=ExtResource("8_tipki")]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -152.0
-offset_top = -72.0
-offset_right = -92.0
-offset_bottom = -12.0
-grow_horizontal = 0
-grow_vertical = 0
-my_state_name = "crouch"
-my_state_icon = ExtResource("11_trceg")
-player_spawner = NodePath("../../scene/playerSpawner")
-
-[node name="Label2" type="Label" parent="menu/crouch_icon"]
-layout_mode = 0
-offset_top = -26.0
-offset_right = 56.0
-offset_bottom = -1.0
-theme = ExtResource("14_jkv2x")
-theme_override_font_sizes/font_size = 22
-text = "ctrl"
-horizontal_alignment = 1

@@ -7,6 +7,8 @@ extends RayCast2D
 @onready var parent = get_parent()
 var player: CharacterBody2D
 
+@export var custom_parent: StaticBody2D
+
 
 func _ready() -> void:
 	set_process(false)
@@ -19,7 +21,13 @@ func _on_player_loaded(new_player: CharacterBody2D) -> void:
 	set_process(true)
 
 
+func get_ray_parent() -> StaticBody2D:
+	if custom_parent != null:
+		return custom_parent
+	return parent
+
+
 func _process(_delta: float) -> void:
 	target_position = player.global_position - global_position
 	var collider_body = get_collider()
-	parent.visible = collider_body == player
+	get_ray_parent().visible = collider_body == player

@@ -52,21 +52,6 @@ func load_state(state_name: String = 'default') -> void:
 		set_current_state(get_node(state_name))
 
 
-func load_next_state() -> void:
-	var is_next: bool = false
-	
-	for state in get_children():
-		if state == current_state:
-			is_next = true
-			continue
-		if is_next:
-			set_current_state(state)
-			return
-	
-	var first_state = get_child(0)
-	set_current_state(first_state)
-
-
 func set_current_state(new_state: MovementState) -> void:
 	current_state = new_state
 	state_changed.emit(new_state.name)

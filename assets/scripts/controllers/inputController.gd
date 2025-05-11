@@ -3,9 +3,11 @@ extends Node
 @export var movement_controller: MovementController
 var input_handler: InputHandler
 var is_key_moving: bool = false
+var fog: TileMapLayer
 
 
 func _ready() -> void:
+	fog = get_tree().get_first_node_in_group("fog")
 	input_handler = get_node("/root/main/menu/inputHandler")
 	input_handler.click.connect(_on_click)
 	input_handler.key_running.connect(_on_running)
@@ -13,6 +15,10 @@ func _ready() -> void:
 
 
 func _on_click(pos: Vector2) -> void:
+	var fog_pos = fog.local_to_map(fog.to_local(pos))
+	if fog.get_cell_source_id(fog_pos) != -1:
+		G.logs.create_log("inGame.logs.path_unknowh")
+		return
 	movement_controller.set_target(pos)
 
 
