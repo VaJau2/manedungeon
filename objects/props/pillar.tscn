@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch8lipo8ff730"]
+[gd_scene load_steps=5 format=3 uid="uid://ch8lipo8ff730"]
 
 [ext_resource type="Texture2D" uid="uid://cy7wh2aoox7cs" path="res://assets/sprites/tilesets/tileset1.png" id="1_8blc2"]
 [ext_resource type="PackedScene" uid="uid://7covdjeymnxa" path="res://objects/props/components/visible_ray.tscn" id="2_xmxun"]
@@ -7,10 +7,7 @@
 size = Vector2(17, 22)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xmxun"]
-polygon = PackedVector2Array(11, 6, 11, -9, 10, -9, 10, -39, -9, -39, -9, -9, -11, -9, -11, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmxun"]
-size = Vector2(19, 44)
+polygon = PackedVector2Array(10, 5, 10, -9, -9, -9, -9, 5)
 
 [node name="pillar" type="StaticBody2D"]
 collision_mask = 0
@@ -29,13 +26,4 @@ shape = SubResource("RectangleShape2D_8blc2")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_xmxun")
 
-[node name="rayBody" type="StaticBody2D" parent="."]
-collision_layer = 8
-collision_mask = 0
-
-[node name="shape" type="CollisionShape2D" parent="rayBody"]
-position = Vector2(0.5, -17)
-shape = SubResource("RectangleShape2D_xmxun")
-
-[node name="visibleRay" parent="rayBody" node_paths=PackedStringArray("custom_parent") instance=ExtResource("2_xmxun")]
-custom_parent = NodePath("../..")
+[node name="visibleRay" parent="." instance=ExtResource("2_xmxun")]

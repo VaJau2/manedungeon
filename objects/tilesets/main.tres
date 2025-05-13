@@ -18,10 +18,10 @@ polygon = PackedVector2Array(-9.08097, -16, 16, -16, 16, 11.4707, -8.76234, 11.1
 polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ed3b5"]
-polygon = PackedVector2Array(8.12508, -16, 8.12508, 16, -16, 16, -16, -16)
+polygon = PackedVector2Array(-16, -16, 6.02527, -16, 6.56485, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kyu3l"]
-polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+polygon = PackedVector2Array(-16, -16, 6.02527, -16, 6.56484, -13.8491, 16, -13.6693, 16, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bd53d"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -72,7 +72,7 @@ polygon = PackedVector2Array(8.12508, -16, 8.12508, 16, -16, 16, -16, -16)
 polygon = PackedVector2Array(-16, -16, 8.44371, -16, 7.80645, 11.7893, -16, 12.108)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ufhjl"]
-polygon = PackedVector2Array(8.12508, -16, 8.12508, 16, -16, 16, -16, -16)
+polygon = PackedVector2Array(-16, -14.5686, 7.46414, -14.3887, 7.28428, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mmmm6"]
 polygon = PackedVector2Array(-16, -5.41672, 5.57604, -6.37262, 5.25741, 16, -16, 16)
@@ -93,43 +93,43 @@ polygon = PackedVector2Array(16, -16, 16, 16, -7.80645, 16, -8.44371, -16)
 polygon = PackedVector2Array(-10.6741, -16, 16, -16, 16, 11.4707, -9.39961, 11.1521)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yvscx"]
-polygon = PackedVector2Array(16, -16, 16, 16, -7.80645, 16, -8.44371, -16)
+polygon = PackedVector2Array(-6.38498, -14.3887, 16, -14.2088, 16, 16, -5.66555, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4cirj"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fx67p"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 9.55892, 8.44371, 12.108, 7.16919, 16, -16, 16)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 9.71237, 6.20513, 9.71237, 5.89466, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a00r6"]
-polygon = PackedVector2Array(-16, -16, 8.12508, -16, 7.80645, 16, -16, 16)
+polygon = PackedVector2Array(-16, -16, 4.93877, -16, 5.89466, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nwke3"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+polygon = PackedVector2Array(-16, -16, 4.93877, -16, 4.93877, -13.0639, 16, -13.3825, 16, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ajef"]
 polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oshpx"]
-polygon = PackedVector2Array(16, -16, 16, 16, -7.80645, 16, -8.44371, -16)
+polygon = PackedVector2Array(-6.92456, -16, 16, -16, 16, 16, -7.10442, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_364hy"]
-polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+polygon = PackedVector2Array(-6.20513, -16, 16, -16, 16, 16, -16, 16, -16, -12.9498, -6.56484, -13.6693)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ua72l"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 11.7893, -16, 12.4266)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 9.71237, -16, 9.71237)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e1mis"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+polygon = PackedVector2Array(-16, -13.0639, 16, -13.3825, 16, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mfvaj"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -7.16919, 16, -8.12508, 12.108, -16, 11.7893)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -5.66555, 16, -6.56484, 9.71237, -16, 9.71237)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wq8dl"]
-polygon = PackedVector2Array(16, -16, 16, 16, -7.80645, 16, -8.44371, -16)
+polygon = PackedVector2Array(-6.38498, -16, 16, -16, 16, 16, -6.02527, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yqix5"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+polygon = PackedVector2Array(-6.38498, -16, 16, -16, 16, 16, -16, 16, -16, -13.4894, -6.38498, -13.8491)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kprrb"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -144,7 +144,7 @@ polygon = PackedVector2Array(16, -16, 16, -0.63726, 3.98288, -0.63726, 4.30151, 
 polygon = PackedVector2Array(16, -16, 16, 12.108, 2.38973, 11.4707, 2.70836, -16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fqm1f"]
-polygon = PackedVector2Array(16, -16, 16, 11.4707, 10.9928, 12.108, 10.0369, 16, -10.6741, 16, -10.9928, 11.7893, -16, 11.1521, -16, -16)
+polygon = PackedVector2Array(-6.38498, -16, 16, -16, 16, 11.3311, -3.50725, 11.3311, -4.22668, -1.61873, -16, -0.899292, -16, -16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig7tw"]
 texture = ExtResource("1_mr4rx")
