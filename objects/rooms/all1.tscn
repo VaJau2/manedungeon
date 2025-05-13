@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=4 uid="uid://mdn4ndssnenq"]
+
+[ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_o65mp"]
+[ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_rhvdm"]
+[ext_resource type="PackedScene" uid="uid://dxxrvduj36qyw" path="res://objects/props/pot.tscn" id="3_jn6jv"]
+[ext_resource type="Script" uid="uid://hdx088gjqlrp" path="res://assets/scripts/spawners/room/roomExit.gd" id="4_nhrhg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
+vertices = PackedVector2Array(56.7422, -78, 57.7266, -1.74219, 41, -26, 41, -83, -80.9609, 0, -21, -26, -126.188, -9.07813, -220.711, -0.03125, -220.383, -27, -160, -27, -74.3203, 104, -130.258, 104, -160, -84, -161, -123, -161, -177, -129.531, -176.609, -82.3828, -176.023, -45, -120, -45, -68, 40, -123, 40, -174.477, 58.8984, -174.242, 58.5938, -106.703, -125.578, -312, -82.0469, -312, 152, -105.289, 152, -78, 9, -83, 9, -120, -22, -123, -21, -68, -222, -84, -222, -77, -328, -77, -328, -104.18, -221, -105.188, -221, -123, -22, -175.258)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(4, 10, 11, 6), PackedInt32Array(12, 13, 14, 15, 16, 17, 18), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(23, 24, 16, 15), PackedInt32Array(22, 25, 26, 0, 3), PackedInt32Array(22, 3, 27, 28, 19), PackedInt32Array(29, 19, 28, 17), PackedInt32Array(18, 30, 5, 4, 6, 9), PackedInt32Array(31, 32, 33, 34), PackedInt32Array(31, 34, 35, 12), PackedInt32Array(35, 36, 13, 12), PackedInt32Array(16, 37, 29, 17), PackedInt32Array(18, 9, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -241, -125, -348, -124, -348, -57, -240, -57, -241, 22, -147, 13, -151, 124, -53, 124, -59.6575, 19.7261, 78, 18, 77, -58, 172, -58, 172, -125, 78.6811, -126.397, 79, -194, -62.3316, -195.767, -62, -332, -145, -332, -148.956, -196.849)])
+agent_radius = 20.0
+
+[node name="room" type="Node2D"]
+y_sort_enabled = true
+
+[node name="floor" type="TileMapLayer" parent="."]
+z_index = -1
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD8//z/AAAJAAwAAAD9//z/AAAJAAwAAAD+//z/AAAIAAUAAAD///z/AAAIAAUAAAAAAPz/AAAIAAUAAAABAPz/AAAIAAUAAAACAPz/AAAJAAwAAAADAPz/AAAJAAwAAAAEAPz/AAAJAAwAAAAFAPz/AAAJAAwAAAAFAP3/AAAJAAwAAAAFAP7/AAAJAAwAAAAFAP//AAAJAAwAAAAFAAAAAAAJAAwAAAAFAAEAAAAIAAUAAAD//wEAAAAIAAUAAAAAAAEAAAAIAAUAAAABAAEAAAAIAAUAAAACAAEAAAAIAAUAAAADAAEAAAAIAAUAAAAEAAEAAAAIAAUAAAD8/wEAAAAIAAUAAAD9/wEAAAAIAAUAAAD+/wEAAAAIAAUAAAD7//3/AAAJAAwAAAD7//7/AAAJAAUAAAD7////AAAFAAwAAAD7/wAAAAAFAAwAAAD7/wEAAAAJAAwAAAD7//z/AAAJAAwAAAD8//3/AAAIAAUAAAD8//7/AAAIAAUAAAD8////AAAIAAUAAAD8/wAAAAAMAAUAAAD9//3/AAAIAAUAAAD9//7/AAAJAAYAAAD9////AAAJAAYAAAD9/wAAAAAJAAYAAAD+//3/AAAIAAUAAAD+//7/AAAJAAYAAAD+////AAAJAAYAAAD+/wAAAAAJAAYAAAD///3/AAAIAAUAAAD///7/AAAJAAYAAAD/////AAAJAAYAAAD//wAAAAAJAAYAAAAAAP3/AAAIAAUAAAAAAP7/AAAJAAYAAAAAAP//AAAJAAYAAAAAAAAAAAAJAAYAAAABAP3/AAAIAAUAAAABAP7/AAAJAAYAAAABAP//AAAJAAYAAAABAAAAAAAJAAYAAAACAP3/AAAIAAUAAAACAP7/AAAJAAYAAAACAP//AAAJAAYAAAACAAAAAAAJAAYAAAADAP3/AAAIAAUAAAADAP7/AAAJAAYAAAADAP//AAAJAAYAAAADAAAAAAAJAAYAAAAEAP3/AAAIAAUAAAAEAP7/AAAIAAUAAAAEAP//AAAIAAUAAAAEAAAAAAAIAAUAAAD6////AAAFAAwAAAD5////AAAFAAwAAAD6/wAAAAAFAAwAAAD5/wAAAAAFAAwAAAD6//7/AAAKAAUAAAD5//7/AAAKAAUAAAAFAAIAAAAJAAwAAAAEAAIAAAAJAAwAAAADAAIAAAAJAAwAAAACAAIAAAAJAAwAAAABAAIAAAAIAAUAAAAAAAIAAAAIAAUAAAD//wIAAAAIAAUAAAD+/wIAAAAJAAwAAAD9/wIAAAAJAAwAAAD8/wIAAAAJAAwAAAD7/wIAAAAJAAwAAAABAAMAAAAIAAUAAAAAAAMAAAAIAAUAAAD//wMAAAAIAAUAAAABAAQAAAAIAAUAAAAAAAQAAAAIAAUAAAD//wQAAAAIAAUAAAD+/wMAAAAIAAUAAAD+/wQAAAAIAAUAAAD+/wUAAAAIAAUAAAD//wUAAAAIAAUAAAAAAAUAAAAIAAUAAAABAAUAAAAMAAYAAAAGAAEAAAAIAAUAAAAHAAEAAAAIAAUAAAAHAAAAAAAIAAUAAAAHAP7/AAAIAAUAAAAHAP//AAAIAAUAAAAHAP3/AAAIAAUAAAAGAP3/AAAIAAUAAAAGAP7/AAAIAAUAAAAGAP//AAAIAAUAAAAGAAAAAAAIAAUAAAABAPv/AAAIAAUAAAABAPr/AAAIAAUAAAABAPn/AAAIAAUAAAAAAPn/AAAIAAUAAAD///n/AAAIAAUAAAD+//n/AAAIAAUAAAD+//r/AAAIAAUAAAD+//v/AAAIAAUAAAD///v/AAAIAAUAAAAAAPv/AAAIAAUAAAAAAPr/AAAIAAUAAAD///r/AAAIAAUAAAA=")
+tile_set = ExtResource("1_o65mp")
+
+[node name="walls" type="TileMapLayer" parent="."]
+z_index = -1
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD8//z/AAAJAAMAAAD9//z/AAAEAAEAAAACAPz/AAAEAAEAAAADAPz/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAPv/AAAEAAAAAAADAPv/AAAEAAAAAAACAPv/AAAEAAAAAAD9//v/AAABAAIAAAD8//v/AAAJAAIAAAD7//7/AAACAAMAAAD7//3/AAACAAIAAAD6//7/AAABAAMAAAD5//7/AAABAAMAAAD6//3/AAABAAIAAAD5//3/AAABAAIAAAAFAAMAAAAFAAMAAAAEAAMAAAAEAAMAAAADAAMAAAAEAAMAAAACAAMAAAAEAAMAAAD+/wMAAAABAAcAAAD9/wMAAAAEAAMAAAD8/wMAAAAEAAMAAAD7/wMAAAADAAMAAAD5/wEAAAAEAAMAAAD7/wEAAAABAAcAAAD7/wIAAAADAAIAAAD6/wEAAAAEAAMAAAAFAPv/AAAFAAAAAAAFAPz/AAAFAAEAAAAFAP3/AAAAAAIAAAAFAP7/AAAAAAMAAAAFAAEAAAACAAcAAAAFAAIAAAAFAAIAAAD7//v/AAADAAAAAAD7//z/AAADAAEAAAABAPz/AAAAAAMAAAD+//z/AAACAAMAAAABAPv/AAAAAAIAAAD+//v/AAACAAIAAAABAAMAAAACAAcAAAABAAQAAAADAAYAAAABAAUAAAADAAYAAAD+/wUAAAAAAAYAAAD+/wQAAAAAAAYAAAABAPr/AAAFAAIAAAABAPn/AAAFAAIAAAD+//r/AAADAAIAAAD+//n/AAADAAIAAAAGAP7/AAABAAMAAAAHAP7/AAABAAMAAAAGAP3/AAABAAIAAAAHAP3/AAABAAIAAAAGAAEAAAAEAAMAAAAHAAEAAAAEAAMAAAA=")
+tile_set = ExtResource("1_o65mp")
+
+[node name="props" type="NavigationRegion2D" parent="."]
+y_sort_enabled = true
+position = Vector2(104, 88)
+navigation_polygon = SubResource("NavigationPolygon_o6xl0")
+
+[node name="pillar" parent="props" instance=ExtResource("2_rhvdm")]
+y_sort_enabled = true
+position = Vector2(-192, -150)
+
+[node name="pillar2" parent="props" instance=ExtResource("2_rhvdm")]
+y_sort_enabled = true
+position = Vector2(9, -150)
+
+[node name="pillar3" parent="props" instance=ExtResource("2_rhvdm")]
+y_sort_enabled = true
+position = Vector2(10, -53)
+
+[node name="pillar4" parent="props" instance=ExtResource("2_rhvdm")]
+y_sort_enabled = true
+position = Vector2(-191, -54)
+
+[node name="pot3" parent="props" instance=ExtResource("3_jn6jv")]
+position = Vector2(-18, -95)
+
+[node name="room_exits" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="room_exits"]
+position = Vector2(-224, 0)
+script = ExtResource("4_nhrhg")
+next_room_side = 1
+
+[node name="2" type="Node2D" parent="room_exits"]
+position = Vector2(0, 192)
+script = ExtResource("4_nhrhg")
+next_room_side = 2
+
+[node name="3" type="Node2D" parent="room_exits"]
+position = Vector2(256, 0)
+script = ExtResource("4_nhrhg")
+
+[node name="4" type="Node2D" parent="room_exits"]
+position = Vector2(0, -224)
+script = ExtResource("4_nhrhg")
+next_room_side = 3

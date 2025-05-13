@@ -4,8 +4,10 @@ extends Line2D
 var player: Node2D
 var start_distance: float
 
+
 func _ready() -> void:
 	start_distance = get_distance()
+
 
 func _process(_delta: float) -> void:
 	var opacity = get_distance() / start_distance
