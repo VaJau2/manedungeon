@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_0pfyk"]
 [ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_ebglv"]
-[ext_resource type="PackedScene" uid="uid://dxxrvduj36qyw" path="res://objects/props/pot.tscn" id="3_7vyti"]
+[ext_resource type="Script" uid="uid://c65lwstlnlisj" path="res://assets/scripts/spawners/furnSpawner.gd" id="3_0pfyk"]
 [ext_resource type="Script" uid="uid://hdx088gjqlrp" path="res://assets/scripts/spawners/room/roomExit.gd" id="4_njxff"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
@@ -47,8 +47,10 @@ position = Vector2(10, -53)
 y_sort_enabled = true
 position = Vector2(-191, -54)
 
-[node name="pot3" parent="props" instance=ExtResource("3_7vyti")]
-position = Vector2(-18, -95)
+[node name="furnSpawner" type="Node2D" parent="props"]
+position = Vector2(-18, -93)
+script = ExtResource("3_0pfyk")
+spawn_chance = 0.9
 
 [node name="room_exits" type="Node2D" parent="."]
 

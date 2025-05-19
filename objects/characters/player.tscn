@@ -235,9 +235,12 @@ sprite = NodePath("../sprite")
 anim = NodePath("../anim")
 movement_controller = NodePath("../movementController")
 
-[node name="inputController" type="Node" parent="." node_paths=PackedStringArray("movement_controller")]
+[node name="inputController" type="Node" parent="." node_paths=PackedStringArray("movement_controller", "input_ray")]
 script = ExtResource("5_ch64r")
 movement_controller = NodePath("../movementController")
+input_ray = NodePath("../inputRay")
+
+[node name="inputRay" type="RayCast2D" parent="."]
 
 [node name="pathLineDrawer" type="Node" parent="." node_paths=PackedStringArray("nav_agent", "movement_controller")]
 script = ExtResource("6_0xcfp")

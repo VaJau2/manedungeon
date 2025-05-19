@@ -1,0 +1,152 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfufg5r6qocbm"]
+
+[ext_resource type="Script" uid="uid://dhn83cbpai0eu" path="res://assets/scripts/props/furn/door.gd" id="1_76jlb"]
+[ext_resource type="Script" uid="uid://b03lmorqeerip" path="res://assets/scripts/props/furn/doorOpenArea.gd" id="3_aym3i"]
+[ext_resource type="Texture2D" uid="uid://d06a6uidcfx8f" path="res://assets/sprites/tilesets/doors.png" id="4_76jlb"]
+[ext_resource type="PackedScene" uid="uid://7covdjeymnxa" path="res://objects/props/components/visible_ray.tscn" id="4_il1jk"]
+
+[sub_resource type="Animation" id="Animation_gd3vu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_76jlb"]
+resource_name = "close"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_aym3i"]
+resource_name = "close-2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [11, 10, 9]
+}
+
+[sub_resource type="Animation" id="Animation_rg2sf"]
+resource_name = "open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_bp210"]
+resource_name = "open-2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ew32t"]
+_data = {
+&"RESET": SubResource("Animation_gd3vu"),
+&"close": SubResource("Animation_76jlb"),
+&"close-2": SubResource("Animation_aym3i"),
+&"open": SubResource("Animation_rg2sf"),
+&"open-2": SubResource("Animation_bp210")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg2sf"]
+size = Vector2(4, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1nulh"]
+polygon = PackedVector2Array(16, -21, 16, 10, 18, 10, 18, -21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76jlb"]
+size = Vector2(19, 34)
+
+[node name="doorHorizontal" type="StaticBody2D" node_paths=PackedStringArray("anim")]
+script = ExtResource("1_76jlb")
+anim = NodePath("anim")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ew32t")
+}
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(1.28, 12)
+shape = SubResource("RectangleShape2D_rg2sf")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-15.72, 18)
+occluder = SubResource("OccluderPolygon2D_1nulh")
+
+[node name="openArea" type="Area2D" parent="."]
+position = Vector2(3.28, 27)
+script = ExtResource("3_aym3i")
+
+[node name="shape" type="CollisionShape2D" parent="openArea"]
+position = Vector2(9, -14)
+shape = SubResource("RectangleShape2D_76jlb")
+
+[node name="openArea2" type="Area2D" parent="."]
+position = Vector2(1.28, 27)
+script = ExtResource("3_aym3i")
+other_side = true
+
+[node name="shape" type="CollisionShape2D" parent="openArea2"]
+position = Vector2(-10, -14)
+shape = SubResource("RectangleShape2D_76jlb")
+
+[node name="visibleRay" parent="." instance=ExtResource("4_il1jk")]
+position = Vector2(1.28, 9)
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -2)
+scale = Vector2(1.04, 1)
+texture = ExtResource("4_76jlb")
+hframes = 6
+vframes = 3
+frame = 3
+
+[connection signal="body_entered" from="openArea" to="openArea" method="_on_body_entered"]
+[connection signal="body_entered" from="openArea2" to="openArea2" method="_on_body_entered"]

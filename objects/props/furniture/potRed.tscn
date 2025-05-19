@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5qm2ost76d6t"]
+
+[ext_resource type="PackedScene" uid="uid://dxxrvduj36qyw" path="res://objects/props/furniture/pot.tscn" id="1_ucf35"]
+[ext_resource type="Texture2D" uid="uid://b8wvshrlljavd" path="res://assets/sprites/props/pots/breakable pots (red).png" id="2_mptou"]
+
+[node name="pot" instance=ExtResource("1_ucf35")]
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("2_mptou")

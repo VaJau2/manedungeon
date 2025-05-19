@@ -89,7 +89,7 @@ func filter_room(room: Node2D, my_exit: RoomExit, next_slot: Vector2i) -> bool:
 
 
 func spawn_next_room(room: Node2D, my_exit: RoomExit, next_slot: Vector2i) -> void:
-	room = room.duplicate()
+	all_rooms.erase(room)
 	add_room(room, next_slot)
 	var room_exit = find_other_room_exit(room, my_exit)
 	room_exit.is_free = false

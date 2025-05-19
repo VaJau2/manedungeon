@@ -4,3 +4,5 @@ class_name Global
 
 @onready var logs: Logs = get_tree().get_first_node_in_group("logs")
 var settings: Settings = Settings.new()
+
+var is_interacting: bool = false

@@ -2,12 +2,12 @@
 
 [ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_bsle8"]
 [ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_j8h58"]
-[ext_resource type="PackedScene" uid="uid://dxxrvduj36qyw" path="res://objects/props/pot.tscn" id="3_cpda6"]
+[ext_resource type="Script" uid="uid://c65lwstlnlisj" path="res://assets/scripts/spawners/furnSpawner.gd" id="3_uxi5s"]
 [ext_resource type="Script" uid="uid://hdx088gjqlrp" path="res://assets/scripts/spawners/room/roomExit.gd" id="4_3wt1x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
-vertices = PackedVector2Array(58.9063, -175.141, 58.0938, -1.75, 41, -26, 41, -83, -220.742, 1.74219, -21, -26, -220.383, -27, -160, -27, 40, -176.25, 40, -123, 9, -83, 9, -120, -22, -123, -45, -120, -160, -84, -161, -123, -161, -176.992, -126.219, -176.563, -45, -68, -328, -104.18, -304, -104.406, -304, -82, -328, -77, -222, -77, -231, -82, -222, -84, -231, -105.094, -221, -105.188, -21, -68, -221, -123, -125.203, -280, -77, -280, -77, -183.141, -22, -179.898)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 0, 3, 9), PackedInt32Array(9, 3, 10, 11), PackedInt32Array(12, 9, 11, 13), PackedInt32Array(14, 15, 16, 17, 13, 18), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(23, 22, 21, 24), PackedInt32Array(25, 23, 24, 26), PackedInt32Array(25, 26, 27, 14), PackedInt32Array(28, 5, 7, 18), PackedInt32Array(18, 7, 14), PackedInt32Array(27, 29, 15, 14), PackedInt32Array(30, 31, 32, 17), PackedInt32Array(13, 17, 32, 33, 12)])
+vertices = PackedVector2Array(58.9063, -175.141, 58.0938, -1.75, 41, -26, 41, -83, -220.742, 1.74219, -21, -26, -220.383, -27, -160, -27, 40, -176.25, 40, -123, -22, -123, -21, -83, -160, -84, -161, -123, -161, -176.992, -126.219, -176.563, -222, -84, -222, -77, -328, -77, -328, -104.18, -221, -105.188, -221, -123, -22, -179.898, -77, -183.141, -125.203, -280, -77, -280)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 0, 3, 9), PackedInt32Array(10, 9, 3, 11, 12), PackedInt32Array(13, 14, 15, 10, 12), PackedInt32Array(11, 5, 7, 12), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(16, 19, 20, 12), PackedInt32Array(20, 21, 13, 12), PackedInt32Array(22, 10, 15, 23), PackedInt32Array(23, 15, 24, 25)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -241, -125, -348, -124, -348, -57, -240, -57, -241, 22, 78, 18, 79, -194, -57, -202, -57, -300, -145, -300, -146.02, -196.813)])
 agent_radius = 20.0
 
@@ -47,14 +47,19 @@ position = Vector2(10, -53)
 y_sort_enabled = true
 position = Vector2(-191, -54)
 
-[node name="pot" parent="props" instance=ExtResource("3_cpda6")]
-position = Vector2(-258, -109)
+[node name="furnSpawner" type="Node2D" parent="props"]
+position = Vector2(-20, -93)
+script = ExtResource("3_uxi5s")
 
-[node name="pot2" parent="props" instance=ExtResource("3_cpda6")]
-position = Vector2(-277, -109)
+[node name="furnSpawner2" type="Node2D" parent="props"]
+position = Vector2(-223, -150)
+script = ExtResource("3_uxi5s")
+spawn_chance = 0.8
 
-[node name="pot3" parent="props" instance=ExtResource("3_cpda6")]
-position = Vector2(-18, -95)
+[node name="furnSpawner3" type="Node2D" parent="props"]
+position = Vector2(-221, -48)
+script = ExtResource("3_uxi5s")
+spawn_chance = 0.8
 
 [node name="room_exits" type="Node2D" parent="."]
 

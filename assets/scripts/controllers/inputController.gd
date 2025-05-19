@@ -1,9 +1,13 @@
 extends Node
 
+const INTERACTION_DISTANCE: float = 100
+
 @export var movement_controller: MovementController
+@export var input_ray: RayCast2D
 var input_handler: InputHandler
 var is_key_moving: bool = false
 var fog: TileMapLayer
+
 
 
 func _ready() -> void:
@@ -19,7 +23,23 @@ func _on_click(pos: Vector2) -> void:
 	if fog.get_cell_source_id(fog_pos) != -1:
 		G.logs.create_log("inGame.logs.path_unknowh")
 		return
+	var interactable = get_interactable(pos)
+	if interactable != null:
+		interactable.interact(get_parent())
+		return
 	movement_controller.set_target(pos)
+
+
+func get_interactable(pos: Vector2) -> Node: 
+	if get_parent().global_position.distance_to(pos) > INTERACTION_DISTANCE:
+		return null
+	input_ray.target_position = pos - get_parent().global_position
+	input_ray.force_raycast_update()
+	var collider_body = input_ray.get_collider()
+	if collider_body != null && collider_body.has_method("interact"):
+		return collider_body
+	return null
+
 
 
 func _on_running() -> void:

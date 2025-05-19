@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7covdjeymnxa" path="res://objects/props/components/visible_ray.tscn" id="2_xmxun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8blc2"]
-size = Vector2(17, 22)
+size = Vector2(22, 22)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xmxun"]
 polygon = PackedVector2Array(10, 5, 10, -9, -9, -9, -9, 5)
@@ -13,17 +13,18 @@ polygon = PackedVector2Array(10, 5, 10, -9, -9, -9, -9, 5)
 collision_mask = 0
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -13)
 texture = ExtResource("1_8blc2")
 region_enabled = true
 region_rect = Rect2(0.87606, 429.178, 27.7591, 46.2652)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.81e-06, -1.5)
+position = Vector2(4.54747e-12, -1)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8blc2")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, 3)
 occluder = SubResource("OccluderPolygon2D_xmxun")
 
 [node name="visibleRay" parent="." instance=ExtResource("2_xmxun")]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxxrvduj36qyw"]
+
+[ext_resource type="Texture2D" uid="uid://cbg5e663iq4w2" path="res://assets/sprites/props/pots/breakable pots (white).png" id="1_30hli"]
+[ext_resource type="PackedScene" uid="uid://7covdjeymnxa" path="res://objects/props/components/visible_ray.tscn" id="2_dyr3j"]
+[ext_resource type="Script" uid="uid://b1imeet6wdjfg" path="res://assets/scripts/props/breakArea.gd" id="3_exr23"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dyr3j"]
+polygon = PackedVector2Array(5, 5, 7, -8, 5, -10, -5, -10, -8, -8, -6, 5, -3, 7, 3, 7)
+
+[sub_resource type="GDScript" id="GDScript_exr23"]
+script/source = "extends LightOccluder2D
+
+@export var break_area: Area2D
+
+func _ready() -> void:
+	break_area.connect(\"body_entered\", _on_body_entered)
+
+
+func _on_body_entered(_body: Node2D) -> void:
+	queue_free()
+"
+
+[sub_resource type="Animation" id="Animation_4mh8m"]
+resource_name = "break"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.333333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_stj6a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ngrg4"]
+_data = {
+&"RESET": SubResource("Animation_stj6a"),
+&"break": SubResource("Animation_4mh8m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kp7x"]
+size = Vector2(13, 15)
+
+[node name="pot" type="Node2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("1_30hli")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="visibleRay" parent="." instance=ExtResource("2_dyr3j")]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." node_paths=PackedStringArray("break_area")]
+occluder = SubResource("OccluderPolygon2D_dyr3j")
+script = SubResource("GDScript_exr23")
+break_area = NodePath("../break-area")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ngrg4")
+}
+
+[node name="break-area" type="Area2D" parent="." node_paths=PackedStringArray("anim")]
+script = ExtResource("3_exr23")
+anim = NodePath("../anim")
+
+[node name="shape" type="CollisionShape2D" parent="break-area"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_2kp7x")
+
+[connection signal="body_entered" from="break-area" to="break-area" method="_on_body_entered"]

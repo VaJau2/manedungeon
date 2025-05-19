@@ -2,12 +2,12 @@
 
 [ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_xijm1"]
 [ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_u2d6c"]
-[ext_resource type="PackedScene" uid="uid://dxxrvduj36qyw" path="res://objects/props/pot.tscn" id="3_w4406"]
+[ext_resource type="Script" uid="uid://c65lwstlnlisj" path="res://assets/scripts/spawners/furnSpawner.gd" id="3_xijm1"]
 [ext_resource type="Script" uid="uid://hdx088gjqlrp" path="res://assets/scripts/spawners/room/roomExit.gd" id="4_bh0hr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
-vertices = PackedVector2Array(42.1797, -78.7891, 45.2109, -0.789063, 41, -26, 41, -83, -221, 1.79688, -21, -26, -221, -27, -160, -27, 46, -110.328, 151, -110.047, 151, -74.75, -21, -68, -45, -68, -45, -120, -160, -84, -101, -147, -101, -177.539, -22, -177.281, -22, -123, 40, -123, 40, -177.078, 46, -177.063, 9, -83, 9, -120, -161, -147, -161, -123, -221, -84, -221, -123)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 9, 10, 0, 3), PackedInt32Array(11, 5, 7, 12), PackedInt32Array(13, 12, 7, 14, 15), PackedInt32Array(15, 16, 17, 18, 13), PackedInt32Array(19, 20, 21, 8), PackedInt32Array(8, 3, 22, 23, 19), PackedInt32Array(18, 19, 23, 13), PackedInt32Array(24, 15, 14, 25), PackedInt32Array(25, 14, 26, 27)])
+vertices = PackedVector2Array(42.1797, -78.7891, 45.2109, -0.789063, 41, -26, 41, -83, -221, 1.79688, -21, -26, -221, -27, -160, -27, 46, -110.328, 151, -110.047, 151, -74.75, -21, -83, -160, -84, -22, -123, -161, -123, -161, -177.727, -22, -177.281, 40, -123, 40, -177.078, 46, -177.063, -221, -84, -221, -123)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 9, 10, 0, 3), PackedInt32Array(11, 5, 7, 12, 13), PackedInt32Array(14, 15, 16, 13, 12), PackedInt32Array(17, 18, 19, 8, 3), PackedInt32Array(12, 20, 21, 14), PackedInt32Array(11, 13, 17, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -241, 22, 66, 19, 63, -58, 171, -54, 171, -130, 66, -130.278, 66, -197)])
 agent_radius = 20.0
 
@@ -47,14 +47,9 @@ position = Vector2(10, -53)
 y_sort_enabled = true
 position = Vector2(-191, -54)
 
-[node name="pot" parent="props" instance=ExtResource("3_w4406")]
-position = Vector2(-150, -174)
-
-[node name="pot2" parent="props" instance=ExtResource("3_w4406")]
-position = Vector2(-128, -174)
-
-[node name="pot3" parent="props" instance=ExtResource("3_w4406")]
-position = Vector2(-18, -95)
+[node name="furnSpawner" type="Node2D" parent="props"]
+position = Vector2(-224, -152)
+script = ExtResource("3_xijm1")
 
 [node name="room_exits" type="Node2D" parent="."]
 

@@ -19,7 +19,7 @@ func _on_player_loaded(new_player: CharacterBody2D) -> void:
 	set_process(true)
 
 
-func get_ray_parent() -> StaticBody2D:
+func get_ray_parent() -> Node2D:
 	return parent
 
 
