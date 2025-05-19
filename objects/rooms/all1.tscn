@@ -61,19 +61,19 @@ spawn_chance = 0.5
 y_sort_enabled = true
 
 [node name="doorHorizontal" parent="doors" instance=ExtResource("5_jn6jv")]
-position = Vector2(-147, -36)
+position = Vector2(-145, -33)
 scale = Vector2(1.3, 1.3)
 
 [node name="doorHorizontal2" parent="doors" instance=ExtResource("5_pia6e")]
-position = Vector2(-146, 32)
+position = Vector2(-146, 31)
 scale = Vector2(1.3, 1.3)
 
 [node name="doorHorizontal3" parent="doors" instance=ExtResource("5_jn6jv")]
-position = Vector2(174, -35)
+position = Vector2(176, -33)
 scale = Vector2(1.3, 1.3)
 
 [node name="doorHorizontal4" parent="doors" instance=ExtResource("5_pia6e")]
-position = Vector2(175, 35)
+position = Vector2(175, 31)
 scale = Vector2(1.3, 1.3)
 
 [node name="doorVertical" parent="doors" instance=ExtResource("5_rhvdm")]

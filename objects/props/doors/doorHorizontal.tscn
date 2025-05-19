@@ -115,15 +115,15 @@ libraries = {
 }
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2(1.28, 12)
+position = Vector2(-0.72, 11.784)
 shape = SubResource("RectangleShape2D_rg2sf")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2(-15.72, 18)
+position = Vector2(-17.72, 17.784)
 occluder = SubResource("OccluderPolygon2D_1nulh")
 
 [node name="openArea" type="Area2D" parent="."]
-position = Vector2(3.28, 27)
+position = Vector2(1.28, 26.784)
 script = ExtResource("3_aym3i")
 
 [node name="shape" type="CollisionShape2D" parent="openArea"]
@@ -131,7 +131,7 @@ position = Vector2(9, -14)
 shape = SubResource("RectangleShape2D_76jlb")
 
 [node name="openArea2" type="Area2D" parent="."]
-position = Vector2(1.28, 27)
+position = Vector2(-0.72, 26.784)
 script = ExtResource("3_aym3i")
 other_side = true
 
@@ -140,18 +140,19 @@ position = Vector2(-10, -14)
 shape = SubResource("RectangleShape2D_76jlb")
 
 [node name="visibleRay" parent="." instance=ExtResource("4_il1jk")]
-position = Vector2(1.28, 9)
+position = Vector2(-0.72, 8.784)
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -2)
-scale = Vector2(1.04, 1)
+position = Vector2(-3, -2.216)
+scale = Vector2(1, 0.962)
 texture = ExtResource("4_76jlb")
 hframes = 6
 vframes = 3
 frame = 3
 
 [node name="audi" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-2, -0.216)
 max_distance = 200.0
 script = ExtResource("5_il1jk")
 open_sound = ExtResource("6_uuwjn")
