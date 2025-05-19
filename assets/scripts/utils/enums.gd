@@ -11,3 +11,9 @@ enum ExitSide {
 	up,
 	down
 }
+
+enum Materials {
+	Stone,
+	Dirt,
+	Wood,
+}

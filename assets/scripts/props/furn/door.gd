@@ -7,6 +7,9 @@ const CLOSE_TIME = 5
 @export var anim: AnimationPlayer
 @export var closed: bool = true
 
+signal opening
+signal closing
+
 var light_occluder: LightOccluder2D
 var close_timer: float = 0
 var is_other_side: bool = false
@@ -30,6 +33,10 @@ func set_open(open: bool, other_side: bool) -> void:
 	collision_mask = 0 if open else 1
 	reset_timer()
 	set_process(open)
+	if open:
+		opening.emit()
+	else:
+		closing.emit()
 
 
 

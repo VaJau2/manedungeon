@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var anim: AnimationPlayer
+@export var audi: AudioStreamPlayer2D
+var breaking: bool
 
 
 func _ready() -> void:
@@ -8,7 +10,10 @@ func _ready() -> void:
 
 
 func _on_body_entered(_body: Node2D) -> void:
+	if breaking: return
+	breaking = true
 	anim.play("break")
+	audi.play()
 
 
 func _on_animation_finished(anim_name: String) -> void:

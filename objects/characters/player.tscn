@@ -1,13 +1,28 @@
-[gd_scene load_steps=21 format=3 uid="uid://drcv3qk77jdcs"]
+[gd_scene load_steps=38 format=3 uid="uid://drcv3qk77jdcs"]
 
 [ext_resource type="Texture2D" uid="uid://de0vxpgvm860d" path="res://assets/sprites/characters/pony/base.png" id="1_g87t3"]
 [ext_resource type="Script" uid="uid://6gu4rfslrt2r" path="res://assets/scripts/controllers/movement/movementController.gd" id="2_53hwf"]
+[ext_resource type="Script" uid="uid://c0avwigavpdu5" path="res://assets/scripts/controllers/steps/stepsController.gd" id="2_m8dop"]
+[ext_resource type="Script" uid="uid://cqrlqmbvhk1x3" path="res://assets/scripts/controllers/steps/stepData.gd" id="3_4tsrb"]
 [ext_resource type="Script" uid="uid://dxiwao0oi3jq3" path="res://assets/scripts/controllers/movement/movementState.gd" id="3_m8dop"]
 [ext_resource type="Script" uid="uid://csp1utd40ubch" path="res://assets/scripts/controllers/animationController.gd" id="4_4tsrb"]
+[ext_resource type="AudioStream" uid="uid://dymbri0f4cpbt" path="res://assets/audio/steps/stone/StoneStepRun1.wav" id="4_cfkf1"]
 [ext_resource type="Script" uid="uid://b2cf4nfutuk4f" path="res://assets/scripts/controllers/inputController.gd" id="5_ch64r"]
+[ext_resource type="AudioStream" uid="uid://d3j6j21q6b5al" path="res://assets/audio/steps/stone/StoneStepRun2.wav" id="5_r7ek2"]
 [ext_resource type="Script" uid="uid://dmpaqppbyrddp" path="res://assets/scripts/interface/pathLineDrawer.gd" id="6_0xcfp"]
+[ext_resource type="AudioStream" uid="uid://h5wxna8rnmcl" path="res://assets/audio/steps/stone/StoneStepRun3.wav" id="6_6hlb3"]
+[ext_resource type="AudioStream" uid="uid://drgatqqnlino8" path="res://assets/audio/steps/stone/StoneStep1.wav" id="7_0g6ig"]
 [ext_resource type="PackedScene" uid="uid://coqmknqkpl1qf" path="res://objects/interface/pathLine.tscn" id="7_w0sbo"]
 [ext_resource type="Texture2D" uid="uid://b6gyjhc7geide" path="res://assets/sprites/effects/light.png" id="8_53hwf"]
+[ext_resource type="AudioStream" uid="uid://by100kpgatr7k" path="res://assets/audio/steps/stone/StoneStep2.wav" id="8_u1jxi"]
+[ext_resource type="AudioStream" uid="uid://5u8eo4orxbyy" path="res://assets/audio/steps/stone/StoneStep3.wav" id="9_dbcui"]
+[ext_resource type="Script" uid="uid://bb0o5flqn57bg" path="res://assets/scripts/controllers/steps/materialChecker.gd" id="10_r7ek2"]
+[ext_resource type="AudioStream" uid="uid://c2uuoflv4813d" path="res://assets/audio/steps/dirt/stepDirtRun1.wav" id="10_sln8r"]
+[ext_resource type="AudioStream" uid="uid://buja35smiatu2" path="res://assets/audio/steps/dirt/stepDirtRun2.wav" id="11_i1smo"]
+[ext_resource type="AudioStream" uid="uid://gt8u53d06fcg" path="res://assets/audio/steps/dirt/stepDirtRun3.wav" id="12_p76nc"]
+[ext_resource type="AudioStream" uid="uid://dkht2khyuox4y" path="res://assets/audio/steps/dirt/stepDirt1.wav" id="13_32giv"]
+[ext_resource type="AudioStream" uid="uid://bpjk7tlo7hgsy" path="res://assets/audio/steps/dirt/stepDirt2.wav" id="14_7xnqq"]
+[ext_resource type="AudioStream" uid="uid://dvmkpd6l5pusd" path="res://assets/audio/steps/dirt/stepDirt3.wav" id="15_tpkxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtgdr"]
 size = Vector2(15, 4)
@@ -190,6 +205,20 @@ _data = {
 &"walk": SubResource("Animation_firod")
 }
 
+[sub_resource type="Resource" id="Resource_cfkf1"]
+script = ExtResource("3_4tsrb")
+material_name = 0
+walk_sounds = Array[AudioStream]([ExtResource("7_0g6ig"), ExtResource("8_u1jxi"), ExtResource("9_dbcui")])
+run_sounds = Array[AudioStream]([ExtResource("4_cfkf1"), ExtResource("5_r7ek2"), ExtResource("6_6hlb3")])
+metadata/_custom_type_script = "uid://cqrlqmbvhk1x3"
+
+[sub_resource type="Resource" id="Resource_h14kj"]
+script = ExtResource("3_4tsrb")
+material_name = 1
+walk_sounds = Array[AudioStream]([ExtResource("13_32giv"), ExtResource("14_7xnqq"), ExtResource("15_tpkxj")])
+run_sounds = Array[AudioStream]([ExtResource("10_sln8r"), ExtResource("11_i1smo"), ExtResource("12_p76nc")])
+metadata/_custom_type_script = "uid://cqrlqmbvhk1x3"
+
 [node name="pony" type="CharacterBody2D"]
 
 [node name="shape" type="CollisionShape2D" parent="."]
@@ -240,6 +269,15 @@ script = ExtResource("5_ch64r")
 movement_controller = NodePath("../movementController")
 input_ray = NodePath("../inputRay")
 
+[node name="audiSteps" type="AudioStreamPlayer2D" parent="." node_paths=PackedStringArray("movement_controller")]
+script = ExtResource("2_m8dop")
+movement_controller = NodePath("../movementController")
+steps_data = Array[ExtResource("3_4tsrb")]([SubResource("Resource_cfkf1"), SubResource("Resource_h14kj")])
+
+[node name="materialChecker" type="Node2D" parent="audiSteps" node_paths=PackedStringArray("parent")]
+script = ExtResource("10_r7ek2")
+parent = NodePath("../..")
+
 [node name="inputRay" type="RayCast2D" parent="."]
 
 [node name="pathLineDrawer" type="Node" parent="." node_paths=PackedStringArray("nav_agent", "movement_controller")]
@@ -258,3 +296,5 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.807843)
 texture = ExtResource("8_53hwf")
 texture_scale = 2.5
+
+[connection signal="material_changed" from="audiSteps/materialChecker" to="audiSteps" method="on_change_material"]

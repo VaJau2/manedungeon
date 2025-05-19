@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://pg3oqnu74ixu"]
+[gd_scene load_steps=17 format=3 uid="uid://pg3oqnu74ixu"]
 
 [ext_resource type="Script" uid="uid://dhn83cbpai0eu" path="res://assets/scripts/props/furn/door.gd" id="1_c58oy"]
 [ext_resource type="Texture2D" uid="uid://d06a6uidcfx8f" path="res://assets/sprites/tilesets/doors.png" id="2_px54x"]
 [ext_resource type="Script" uid="uid://b03lmorqeerip" path="res://assets/scripts/props/furn/doorOpenArea.gd" id="3_xb56i"]
 [ext_resource type="PackedScene" uid="uid://7covdjeymnxa" path="res://objects/props/components/visible_ray.tscn" id="4_7dukf"]
+[ext_resource type="Script" uid="uid://jvhhabtgduwd" path="res://assets/scripts/props/furn/doorSound.gd" id="5_7dukf"]
+[ext_resource type="AudioStream" uid="uid://cte2s20ato8p4" path="res://assets/audio/door/door_open.wav" id="6_ovo1j"]
+[ext_resource type="AudioStream" uid="uid://bkf6pm835wqp" path="res://assets/audio/door/door_close.wav" id="7_h07ji"]
 
 [sub_resource type="Animation" id="Animation_gd3vu"]
 length = 0.001
@@ -146,6 +149,12 @@ shape = SubResource("RectangleShape2D_ew32t")
 
 [node name="visibleRay" parent="." instance=ExtResource("4_7dukf")]
 position = Vector2(-16, -15)
+
+[node name="audi" type="AudioStreamPlayer2D" parent="."]
+max_distance = 200.0
+script = ExtResource("5_7dukf")
+open_sound = ExtResource("6_ovo1j")
+close_sound = ExtResource("7_h07ji")
 
 [connection signal="body_entered" from="openArea" to="openArea" method="_on_body_entered"]
 [connection signal="body_entered" from="openArea2" to="openArea2" method="_on_body_entered"]
