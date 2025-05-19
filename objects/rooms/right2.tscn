@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=4 uid="uid://fw0vdknbpusi"]
+
+[ext_resource type="TileSet" uid="uid://cc823jab6ws1l" path="res://objects/tilesets/main.tres" id="1_vou2l"]
+[ext_resource type="PackedScene" uid="uid://ch8lipo8ff730" path="res://objects/props/pillar.tscn" id="2_1uxgj"]
+[ext_resource type="Script" uid="uid://c65lwstlnlisj" path="res://assets/scripts/spawners/furnSpawner.gd" id="3_3f53c"]
+[ext_resource type="Script" uid="uid://hdx088gjqlrp" path="res://assets/scripts/spawners/room/roomExit.gd" id="4_48wfj"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
+vertices = PackedVector2Array(42.1797, -78.7891, 45.2109, -0.789063, 41, -23, 41, -85, -221, 1.79688, -21, -23, -21, -85, -221, -177.93, -22, -120, 46, -110.328, 151, -110.047, 151, -74.75, 40, -120, 40, -177.078, 46, -177.063, -22, -177.281)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 5, 4, 7, 8), PackedInt32Array(9, 10, 11, 0, 3), PackedInt32Array(12, 13, 14, 9, 3), PackedInt32Array(7, 15, 8), PackedInt32Array(6, 8, 12, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -198, -241, 22, 66, 19, 63, -58, 171, -54, 171, -130, 66, -130.278, 66, -197)])
+agent_radius = 20.0
+
+[node name="room" type="Node2D"]
+y_sort_enabled = true
+
+[node name="floor" type="TileMapLayer" parent="."]
+z_index = -1
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD8//z/AAAKAAgAAAD9//z/AAAKAAgAAAD+//z/AAAKAAgAAAD///z/AAAKAAgAAAAAAPz/AAAKAAgAAAABAPz/AAAJAAwAAAACAPz/AAAJAAwAAAADAPz/AAAJAAwAAAAEAPz/AAAJAAwAAAAFAPz/AAAJAAwAAAAFAP3/AAAJAAwAAAAFAAEAAAAFAAgAAAD//wEAAAAIAAUAAAAAAAEAAAAIAAUAAAABAAEAAAAIAAUAAAACAAEAAAAIAAUAAAADAAEAAAAIAAUAAAAEAAEAAAAFAAgAAAD9/wEAAAAMAAsAAAD+/wEAAAANAAsAAAD7//3/AAAKAAgAAAD7//7/AAALAAoAAAD7////AAALAAoAAAD7/wAAAAALAAoAAAD7/wEAAAALAAoAAAD7//z/AAAKAAgAAAD8//3/AAAMAAgAAAD8//7/AAAMAAoAAAD8////AAANAAoAAAD8/wAAAAANAAoAAAD9//3/AAAMAAgAAAD9//7/AAAMAAkAAAD9////AAAMAAkAAAD9/wAAAAAMAAsAAAD+//3/AAAMAAgAAAD+//7/AAAMAAkAAAD+////AAAMAAsAAAD+/wAAAAAMAAsAAAD///3/AAANAAgAAAD///7/AAAOAAoAAAD/////AAAOAAoAAAD//wAAAAAOAAoAAAAAAP3/AAAOAAkAAAAAAP7/AAAJAAYAAAAAAP//AAAJAAYAAAAAAAAAAAAJAAYAAAABAP3/AAAIAAUAAAABAP7/AAAJAAYAAAABAP//AAAJAAYAAAABAAAAAAAJAAYAAAACAP3/AAAIAAUAAAACAP7/AAAJAAYAAAACAP//AAAJAAYAAAACAAAAAAAJAAYAAAADAP3/AAAIAAUAAAADAP7/AAAJAAYAAAADAP//AAAJAAYAAAADAAAAAAAFAAgAAAAEAP3/AAAIAAUAAAAEAP7/AAAFAAgAAAAFAAIAAAAJAAwAAAAEAAIAAAAJAAwAAAADAAIAAAAJAAwAAAACAAIAAAAJAAwAAAABAAIAAAAJAAwAAAAAAAIAAAAJAAwAAAD//wIAAAAJAAwAAAD9/wIAAAAJAAwAAAD8/wIAAAALAAsAAAD7/wIAAAAKAAgAAAD8/wEAAAAMAAoAAAAEAP//AAAFAAgAAAAFAP//AAAFAAgAAAAEAAAAAAAFAAgAAAAFAAAAAAAFAAgAAAAFAP7/AAAFAAgAAAAGAP//AAAFAAgAAAAHAP//AAAFAAgAAAAHAAAAAAAFAAgAAAAGAAAAAAAFAAgAAAAGAAEAAAAFAAgAAAAHAAEAAAAFAAgAAAAHAP7/AAAFAAgAAAAGAP7/AAAFAAgAAAD+/wIAAAAOAAoAAAA=")
+tile_set = ExtResource("1_vou2l")
+
+[node name="walls" type="TileMapLayer" parent="."]
+z_index = -1
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD8//z/AAANAAMAAAD9//z/AAAKAAEAAAD+//z/AAAMAAEAAAD///z/AAAEAAEAAAAAAPz/AAAEAAEAAAABAPz/AAAEAAEAAAACAPz/AAAEAAEAAAADAPz/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAPv/AAAEAAAAAAADAPv/AAAEAAAAAAACAPv/AAAEAAAAAAABAPv/AAAEAAAAAAAAAPv/AAAEAAAAAAD///v/AAAEAAAAAAD+//v/AAAEAAAAAAD9//v/AAAEAAAAAAD8//v/AAANAAIAAAAFAAMAAAAFAAMAAAAEAAMAAAAEAAMAAAADAAMAAAAEAAMAAAACAAMAAAAEAAMAAAABAAMAAAAEAAMAAAAAAAMAAAAEAAMAAAD//wMAAAAEAAMAAAD+/wMAAAAEAAMAAAD9/wMAAAAEAAMAAAD8/wMAAAAEAAMAAAD7/wMAAAADAAMAAAD7/wIAAAADAAIAAAAFAPv/AAAFAAAAAAAFAPz/AAAFAAEAAAAFAP3/AAAAAAIAAAAFAAEAAAACAAcAAAAFAAIAAAAFAAIAAAD7//v/AAADAAAAAAD7//z/AAADAAEAAAAFAP7/AAAAAAMAAAAGAP7/AAABAAMAAAAHAP7/AAABAAMAAAAGAP3/AAABAAIAAAAHAP3/AAABAAIAAAAGAAEAAAAEAAMAAAAHAAEAAAAEAAMAAAD7/wEAAAAAAAYAAAD7/wAAAAAAAAYAAAD7////AAAAAAYAAAD7//7/AAAAAAYAAAD7//3/AAAAAAYAAAA=")
+tile_set = ExtResource("1_vou2l")
+
+[node name="props" type="NavigationRegion2D" parent="."]
+y_sort_enabled = true
+position = Vector2(104, 88)
+navigation_polygon = SubResource("NavigationPolygon_o6xl0")
+
+[node name="pillar2" parent="props" instance=ExtResource("2_1uxgj")]
+y_sort_enabled = true
+position = Vector2(9, -150)
+
+[node name="pillar3" parent="props" instance=ExtResource("2_1uxgj")]
+y_sort_enabled = true
+position = Vector2(10, -53)
+
+[node name="furnSpawner" type="Node2D" parent="props"]
+position = Vector2(-39, -161)
+script = ExtResource("3_3f53c")
+
+[node name="room_exits" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="room_exits"]
+position = Vector2(256, 0)
+script = ExtResource("4_48wfj")

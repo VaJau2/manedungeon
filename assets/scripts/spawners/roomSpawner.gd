@@ -12,7 +12,7 @@ var all_rooms: Array[Node2D]
 const MAX_ROOMS_COUNT: int = 4
 
 # для того, чтобы локация не состояла всего из двух комнат
-const MIN_MANY_EXITS_ROOMS_COUNT: int = 2
+const MIN_MANY_EXITS_ROOMS_COUNT: int = 1
 
 var rooms_count: int = 0
 var many_exits_rooms_count: int = 0
